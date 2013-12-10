@@ -1,4 +1,4 @@
-# wp2middlmean
+# wp2middleman
 
 Migrate the posts contained in a Wordpress XML export file to Middleman-style markdown files.
 
