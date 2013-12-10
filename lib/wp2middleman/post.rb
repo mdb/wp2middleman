@@ -40,6 +40,7 @@ module WP2Middleman
       clean_content.gsub!("<encoded>", " ")
       clean_content.gsub!("</encoded>", " ")
       clean_content.gsub!("&gt;", " ")
+      clean_content.gsub!("&lt;", " ")
       clean_content.gsub("<![CDATA[", " ")
       clean_content.gsub!("]];", " ")
       clean_content.gsub!("]]>;", " ")
