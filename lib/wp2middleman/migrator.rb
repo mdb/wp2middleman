@@ -1,5 +1,8 @@
 module WP2Middleman
   class Migrator
+
+    attr_reader :posts
+
     def initialize(wp_xml_export_file)
       @posts = WP2Middleman::PostCollection.new(wp_xml_export_file).posts
     end
@@ -12,11 +15,9 @@ module WP2Middleman
       end
     end
 
-    private
-
     def write_file(post)
       if valid_post_data(post)
-        File.open(full_filename(post), "w") do |file|
+        File.open("#{output_path}#{post.filename}", "w") do |file|
           file.write(file_content(post))
         end
       end
@@ -29,18 +30,20 @@ module WP2Middleman
       file_content += "tags: #{post.tags.join(', ')}\n"
       file_content += "---\n\n"
       file_content += post.content
+
+      file_content
     end
 
     def full_filename(post)
-      "#{output_path}#{post.created_at}-#{post.filename}.html.markdown"
+      "#{output_path}#{post.filename}.html.markdown"
     end
 
     def valid_post_data(post)
-      !(post.created_at.nil? || post.title.nil? || post.date_published.nil? || post.content.nil?)
+      !(post.post_date.nil? || post.title.nil? || post.date_published.nil? || post.content.nil?)
     end
 
     def output_path
-      "#{ENV['PWD']}/export/"
+      "#{Dir.pwd}/export/"
     end
 
     def ensure_export_directory
