@@ -12,22 +12,22 @@ module WP2Middleman
       post.css('title').text
     end
 
-    def formatted_title
-      title.gsub(":", "-")
+    def title_for_filename
+      title.gsub(/[^\w\s_-]+/, '')
+      .gsub(/(^|\b\s)\s+($|\s?\b)/, '\\1\\2')
+      .gsub(/\s+/, '-')
     end
 
     def filename
-      title.gsub(/[^\w\s_-]+/, '')
-      .gsub(/(^|\b\s)\s+($|\s?\b)/, '\\1\\2')
-      .gsub(/\s+/, '_')
+      "#{date_published}-#{title_for_filename}.html.markdown"
     end
 
-    def date_published
+    def post_date
       post.xpath("wp:post_date").first.inner_text
     end
 
-    def created_at
-      Date.parse(date_published).to_s
+    def date_published
+      Date.parse(post_date).to_s
     end
 
     def content
@@ -48,7 +48,9 @@ module WP2Middleman
     end
 
     def markdown_content
-      Html2Md.new(sanitized_content).parse
+      html = HTMLPage.new :contents => content
+
+      html.markdown
     end
 
     def tags
