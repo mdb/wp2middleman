@@ -34,6 +34,28 @@ describe WP2Middleman::Migrator do
     it "properly formats a post as a Middleman-style post" do
       expect(migrator.file_content(migrator.posts[1])).to eq("---\ntitle: A second title\ndate: 2011-07-25\ntags: some_tag, another tag, tag\n---\n\n <strong>Foo</strong>")
     end
+
+    context "its behavior if @body_to_markdown is true" do
+      let(:migrator) { WP2Middleman::Migrator.new(file, body_to_markdown: true) }
+
+      it "formats the post body as markdown" do
+        expect(migrator.file_content(migrator.posts[1])).to eq("---\ntitle: A second title\ndate: 2011-07-25\ntags: some_tag, another tag, tag\n---\n\n**Foo**")
+      end
+    end
+  end
+
+  describe "#formatted_post_content" do
+    it "returns the content of the post it's passed" do
+      expect(migrator.formatted_post_content(migrator.posts[1])).to eq(" <strong>Foo</strong>")
+    end
+
+    context "its behavior if @body_to_markdown is true" do
+      let(:migrator) { WP2Middleman::Migrator.new(file, body_to_markdown: true) }
+
+      it "returns the content of the post it's passed as markdown" do
+        expect(migrator.formatted_post_content(migrator.posts[1])).to eq("**Foo**")
+      end
+    end
   end
 
   describe "#full_filename" do

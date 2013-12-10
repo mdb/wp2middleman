@@ -3,7 +3,8 @@ module WP2Middleman
 
     attr_reader :posts
 
-    def initialize(wp_xml_export_file)
+    def initialize(wp_xml_export_file, body_to_markdown: false)
+      @body_to_markdown = body_to_markdown
       @posts = WP2Middleman::PostCollection.new(wp_xml_export_file).posts
     end
 
@@ -29,9 +30,17 @@ module WP2Middleman
       file_content += "date: #{post.date_published}\n"
       file_content += "tags: #{post.tags.join(', ')}\n"
       file_content += "---\n\n"
-      file_content += post.content
+      file_content += formatted_post_content(post)
 
       file_content
+    end
+
+    def formatted_post_content(post)
+      if @body_to_markdown == true
+        post.markdown_content
+      else
+        post.content
+      end
     end
 
     def full_filename(post)
