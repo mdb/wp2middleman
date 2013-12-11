@@ -1,218 +1,114 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!-- generator="WordPress/3.6" created="2013-12-05 13:04" -->
-<rss version="2.0"
-	xmlns:excerpt="http://wordpress.org/export/1.2/excerpt/"
-	xmlns:content="http://purl.org/rss/1.0/modules/content/"
-	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
-	xmlns:dc="http://purl.org/dc/elements/1.1/"
-	xmlns:wp="http://wordpress.org/export/1.2/"
->
+<rss version="2.0" xmlns:excerpt="http://wordpress.org/export/1.2/excerpt/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:wfw="http://wellformedweb.org/CommentAPI/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:wp="http://wordpress.org/export/1.2/">
 
 <channel>
-	<title>Some Title</title>
-	<link>http://someblog.com</link>
-	<description>A description</description>
-	<pubDate>Thu, 05 Dec 2013 13:04:16 +0000</pubDate>
-	<language>en-US</language>
-	<wp:wxr_version>1.2</wp:wxr_version>
+  <title>Some Title</title>
+  <link>http://someblog.com</link>
+  <description>A description</description>
+  <pubDate>Thu, 05 Dec 2013 13:04:16 +0000</pubDate>
+  <language>en-US</language>
+  <wp:wxr_version>1.2</wp:wxr_version>
   <wp:base_site_url>http://someblog.com</wp:base_site_url>
   <wp:base_blog_url>http://someblog.com</wp:base_blog_url>
 
-	<wp:author><wp:author_id>1</wp:author_id><wp:author_login>admin</wp:author_login><wp:author_email>clapclapexcitement@gmail.com</wp:author_email><wp:author_display_name><![CDATA[admin]]></wp:author_display_name><wp:author_first_name><![CDATA[]]></wp:author_first_name><wp:author_last_name><![CDATA[]]></wp:author_last_name></wp:author>
+  <wp:author><wp:author_id>1</wp:author_id><wp:author_login>admin</wp:author_login><wp:author_email>clapclapexcitement@gmail.com</wp:author_email><wp:author_display_name><![CDATA[admin]]></wp:author_display_name><wp:author_first_name><![CDATA[]]></wp:author_first_name><wp:author_last_name><![CDATA[]]></wp:author_last_name></wp:author>
 
-	<wp:category><wp:term_id>28</wp:term_id><wp:category_nicename>book-review</wp:category_nicename><wp:category_parent></wp:category_parent><wp:cat_name><![CDATA[Book Review]]></wp:cat_name></wp:category>
-	<wp:category><wp:term_id>7</wp:term_id><wp:category_nicename>brain-dump</wp:category_nicename><wp:category_parent></wp:category_parent><wp:cat_name><![CDATA[Brain Dump]]></wp:cat_name></wp:category>
-	<wp:category><wp:term_id>4</wp:term_id><wp:category_nicename>code</wp:category_nicename><wp:category_parent></wp:category_parent><wp:cat_name><![CDATA[Code]]></wp:cat_name></wp:category>
-	<wp:category><wp:term_id>3</wp:term_id><wp:category_nicename>notes</wp:category_nicename><wp:category_parent></wp:category_parent><wp:cat_name><![CDATA[Notes]]></wp:cat_name></wp:category>
-	<wp:category><wp:term_id>51</wp:term_id><wp:category_nicename>philadelphia-2</wp:category_nicename><wp:category_parent></wp:category_parent><wp:cat_name><![CDATA[Philadelphia]]></wp:cat_name></wp:category>
-	<wp:category><wp:term_id>1</wp:term_id><wp:category_nicename>uncategorized</wp:category_nicename><wp:category_parent></wp:category_parent><wp:cat_name><![CDATA[Uncategorized]]></wp:cat_name></wp:category>
-	<wp:category><wp:term_id>74</wp:term_id><wp:category_nicename>virginia</wp:category_nicename><wp:category_parent></wp:category_parent><wp:cat_name><![CDATA[Virginia]]></wp:cat_name></wp:category>
-	<wp:tag><wp:term_id>99</wp:term_id><wp:tag_slug>aaron-swartz</wp:tag_slug><wp:tag_name><![CDATA[aaron swartz]]></wp:tag_name></wp:tag>
-	<wp:tag><wp:term_id>67</wp:term_id><wp:tag_slug>anger</wp:tag_slug><wp:tag_name><![CDATA[anger]]></wp:tag_name></wp:tag>
-	<wp:tag><wp:term_id>114</wp:term_id><wp:tag_slug>async</wp:tag_slug><wp:tag_name><![CDATA[async]]></wp:tag_name></wp:tag>
-	<wp:tag><wp:term_id>116</wp:term_id><wp:tag_slug>async-js</wp:tag_slug><wp:tag_name><![CDATA[async.js]]></wp:tag_name></wp:tag>
-	<wp:tag><wp:term_id>115</wp:term_id><wp:tag_slug>asynchronous</wp:tag_slug><wp:tag_name><![CDATA[asynchronous]]></wp:tag_name></wp:tag>
-	<wp:tag><wp:term_id>45</wp:term_id><wp:tag_slug>baltimore-ave</wp:tag_slug><wp:tag_name><![CDATA[baltimore ave]]></wp:tag_name></wp:tag>
-	<wp:tag><wp:term_id>42</wp:term_id><wp:tag_slug>baltimore-avenue</wp:tag_slug><wp:tag_name><![CDATA[baltimore avenue]]></wp:tag_name></wp:tag>
-	<wp:tag><wp:term_id>97</wp:term_id><wp:tag_slug>banana</wp:tag_slug><wp:tag_name><![CDATA[banana]]></wp:tag_name></wp:tag>
-	<wp:tag><wp:term_id>86</wp:term_id><wp:tag_slug>bash</wp:tag_slug><wp:tag_name><![CDATA[bash]]></wp:tag_name></wp:tag>
-	<wp:tag><wp:term_id>56</wp:term_id><wp:tag_slug>bill-cunningham</wp:tag_slug><wp:tag_name><![CDATA[bill cunningham]]></wp:tag_name></wp:tag>
-	<wp:tag><wp:term_id>73</wp:term_id><wp:tag_slug>block-party</wp:tag_slug><wp:tag_name><![CDATA[block party]]></wp:tag_name></wp:tag>
-	<wp:tag><wp:term_id>30</wp:term_id><wp:tag_slug>bob-mould</wp:tag_slug><wp:tag_name><![CDATA[bob mould]]></wp:tag_name></wp:tag>
-	<wp:tag><wp:term_id>29</wp:term_id><wp:tag_slug>book</wp:tag_slug><wp:tag_name><![CDATA[book]]></wp:tag_name></wp:tag>
-	<wp:tag><wp:term_id>33</wp:term_id><wp:tag_slug>books</wp:tag_slug><wp:tag_name><![CDATA[books]]></wp:tag_name></wp:tag>
-	<wp:tag><wp:term_id>49</wp:term_id><wp:tag_slug>buckingham</wp:tag_slug><wp:tag_name><![CDATA[buckingham]]></wp:tag_name></wp:tag>
-	<wp:tag><wp:term_id>20</wp:term_id><wp:tag_slug>camping</wp:tag_slug><wp:tag_name><![CDATA[camping]]></wp:tag_name></wp:tag>
-	<wp:tag><wp:term_id>64</wp:term_id><wp:tag_slug>carver</wp:tag_slug><wp:tag_name><![CDATA[carver]]></wp:tag_name></wp:tag>
-	<wp:tag><wp:term_id>102</wp:term_id><wp:tag_slug>casserole</wp:tag_slug><wp:tag_name><![CDATA[casserole]]></wp:tag_name></wp:tag>
-	<wp:tag><wp:term_id>14</wp:term_id><wp:tag_slug>cat</wp:tag_slug><wp:tag_name><![CDATA[cat]]></wp:tag_name></wp:tag>
-	<wp:tag><wp:term_id>72</wp:term_id><wp:tag_slug>catharine</wp:tag_slug><wp:tag_name><![CDATA[catharine]]></wp:tag_name></wp:tag>
-	<wp:tag><wp:term_id>94</wp:term_id><wp:tag_slug>cedar-park</wp:tag_slug><wp:tag_name><![CDATA[cedar park]]></wp:tag_name></wp:tag>
-	<wp:tag><wp:term_id>63</wp:term_id><wp:tag_slug>childhood</wp:tag_slug><wp:tag_name><![CDATA[childhood]]></wp:tag_name></wp:tag>
-	<wp:tag><wp:term_id>19</wp:term_id><wp:tag_slug>chores</wp:tag_slug><wp:tag_name><![CDATA[chores]]></wp:tag_name></wp:tag>
-	<wp:tag><wp:term_id>52</wp:term_id><wp:tag_slug>church</wp:tag_slug><wp:tag_name><![CDATA[church]]></wp:tag_name></wp:tag>
-	<wp:tag><wp:term_id>118</wp:term_id><wp:tag_slug>class-macros</wp:tag_slug><wp:tag_name><![CDATA[class macros]]></wp:tag_name></wp:tag>
-	<wp:tag><wp:term_id>111</wp:term_id><wp:tag_slug>class-methods</wp:tag_slug><wp:tag_name><![CDATA[class methods]]></wp:tag_name></wp:tag>
-	<wp:tag><wp:term_id>55</wp:term_id><wp:tag_slug>codeforamerica</wp:tag_slug><wp:tag_name><![CDATA[codeforamerica]]></wp:tag_name></wp:tag>
-	<wp:tag><wp:term_id>46</wp:term_id><wp:tag_slug>comedy</wp:tag_slug><wp:tag_name><![CDATA[comedy]]></wp:tag_name></wp:tag>
-	<wp:tag><wp:term_id>71</wp:term_id><wp:tag_slug>conrail-twitty</wp:tag_slug><wp:tag_name><![CDATA[conrail twitty]]></wp:tag_name></wp:tag>
-	<wp:tag><wp:term_id>83</wp:term_id><wp:tag_slug>core-strength</wp:tag_slug><wp:tag_name><![CDATA[core strength]]></wp:tag_name></wp:tag>
-	<wp:tag><wp:term_id>43</wp:term_id><wp:tag_slug>corporate-franchise</wp:tag_slug><wp:tag_name><![CDATA[corporate franchise]]></wp:tag_name></wp:tag>
-	<wp:tag><wp:term_id>109</wp:term_id><wp:tag_slug>define_method</wp:tag_slug><wp:tag_name><![CDATA[define_method]]></wp:tag_name></wp:tag>
-	<wp:tag><wp:term_id>77</wp:term_id><wp:tag_slug>dream</wp:tag_slug><wp:tag_name><![CDATA[dream]]></wp:tag_name></wp:tag>
-	<wp:tag><wp:term_id>35</wp:term_id><wp:tag_slug>driving</wp:tag_slug><wp:tag_name><![CDATA[driving]]></wp:tag_name></wp:tag>
-	<wp:tag><wp:term_id>110</wp:term_id><wp:tag_slug>dynamic-method</wp:tag_slug><wp:tag_name><![CDATA[dynamic method]]></wp:tag_name></wp:tag>
-	<wp:tag><wp:term_id>25</wp:term_id><wp:tag_slug>earthquake</wp:tag_slug><wp:tag_name><![CDATA[earthquake]]></wp:tag_name></wp:tag>
-	<wp:tag><wp:term_id>82</wp:term_id><wp:tag_slug>economics</wp:tag_slug><wp:tag_name><![CDATA[economics]]></wp:tag_name></wp:tag>
-	<wp:tag><wp:term_id>89</wp:term_id><wp:tag_slug>election</wp:tag_slug><wp:tag_name><![CDATA[election]]></wp:tag_name></wp:tag>
-	<wp:tag><wp:term_id>93</wp:term_id><wp:tag_slug>elenas</wp:tag_slug><wp:tag_name><![CDATA[elenas]]></wp:tag_name></wp:tag>
-	<wp:tag><wp:term_id>8</wp:term_id><wp:tag_slug>family</wp:tag_slug><wp:tag_name><![CDATA[family]]></wp:tag_name></wp:tag>
-	<wp:tag><wp:term_id>58</wp:term_id><wp:tag_slug>film</wp:tag_slug><wp:tag_name><![CDATA[film]]></wp:tag_name></wp:tag>
-	<wp:tag><wp:term_id>62</wp:term_id><wp:tag_slug>fireplay</wp:tag_slug><wp:tag_name><![CDATA[fireplay]]></wp:tag_name></wp:tag>
-	<wp:tag><wp:term_id>47</wp:term_id><wp:tag_slug>football</wp:tag_slug><wp:tag_name><![CDATA[football]]></wp:tag_name></wp:tag>
-	<wp:tag><wp:term_id>31</wp:term_id><wp:tag_slug>freedom</wp:tag_slug><wp:tag_name><![CDATA[freedom]]></wp:tag_name></wp:tag>
-	<wp:tag><wp:term_id>104</wp:term_id><wp:tag_slug>gems</wp:tag_slug><wp:tag_name><![CDATA[gems]]></wp:tag_name></wp:tag>
-	<wp:tag><wp:term_id>81</wp:term_id><wp:tag_slug>git</wp:tag_slug><wp:tag_name><![CDATA[git]]></wp:tag_name></wp:tag>
-	<wp:tag><wp:term_id>66</wp:term_id><wp:tag_slug>golf</wp:tag_slug><wp:tag_name><![CDATA[golf]]></wp:tag_name></wp:tag>
-	<wp:tag><wp:term_id>27</wp:term_id><wp:tag_slug>google</wp:tag_slug><wp:tag_name><![CDATA[google]]></wp:tag_name></wp:tag>
-	<wp:tag><wp:term_id>105</wp:term_id><wp:tag_slug>grep</wp:tag_slug><wp:tag_name><![CDATA[grep]]></wp:tag_name></wp:tag>
-	<wp:tag><wp:term_id>18</wp:term_id><wp:tag_slug>house</wp:tag_slug><wp:tag_name><![CDATA[house]]></wp:tag_name></wp:tag>
-	<wp:tag><wp:term_id>91</wp:term_id><wp:tag_slug>houses</wp:tag_slug><wp:tag_name><![CDATA[houses]]></wp:tag_name></wp:tag>
-	<wp:tag><wp:term_id>76</wp:term_id><wp:tag_slug>indonesia</wp:tag_slug><wp:tag_name><![CDATA[indonesia]]></wp:tag_name></wp:tag>
-	<wp:tag><wp:term_id>112</wp:term_id><wp:tag_slug>instance-methods</wp:tag_slug><wp:tag_name><![CDATA[instance methods]]></wp:tag_name></wp:tag>
-	<wp:tag><wp:term_id>98</wp:term_id><wp:tag_slug>internet</wp:tag_slug><wp:tag_name><![CDATA[internet]]></wp:tag_name></wp:tag>
-	<wp:tag><wp:term_id>6</wp:term_id><wp:tag_slug>javascript</wp:tag_slug><wp:tag_name><![CDATA[javascript]]></wp:tag_name></wp:tag>
-	<wp:tag><wp:term_id>84</wp:term_id><wp:tag_slug>linux</wp:tag_slug><wp:tag_name><![CDATA[linux]]></wp:tag_name></wp:tag>
-	<wp:tag><wp:term_id>24</wp:term_id><wp:tag_slug>london</wp:tag_slug><wp:tag_name><![CDATA[london]]></wp:tag_name></wp:tag>
-	<wp:tag><wp:term_id>32</wp:term_id><wp:tag_slug>lonliness</wp:tag_slug><wp:tag_name><![CDATA[lonliness]]></wp:tag_name></wp:tag>
-	<wp:tag><wp:term_id>48</wp:term_id><wp:tag_slug>mannings</wp:tag_slug><wp:tag_name><![CDATA[mannings]]></wp:tag_name></wp:tag>
-	<wp:tag><wp:term_id>59</wp:term_id><wp:tag_slug>map</wp:tag_slug><wp:tag_name><![CDATA[map]]></wp:tag_name></wp:tag>
-	<wp:tag><wp:term_id>36</wp:term_id><wp:tag_slug>maurice-sendak</wp:tag_slug><wp:tag_name><![CDATA[maurice sendak]]></wp:tag_name></wp:tag>
-	<wp:tag><wp:term_id>50</wp:term_id><wp:tag_slug>memories</wp:tag_slug><wp:tag_name><![CDATA[memories]]></wp:tag_name></wp:tag>
-	<wp:tag><wp:term_id>108</wp:term_id><wp:tag_slug>metaprogramming</wp:tag_slug><wp:tag_name><![CDATA[metaprogramming]]></wp:tag_name></wp:tag>
-	<wp:tag><wp:term_id>117</wp:term_id><wp:tag_slug>node-js</wp:tag_slug><wp:tag_name><![CDATA[Node.js]]></wp:tag_name></wp:tag>
-	<wp:tag><wp:term_id>57</wp:term_id><wp:tag_slug>nytimes</wp:tag_slug><wp:tag_name><![CDATA[nytimes]]></wp:tag_name></wp:tag>
-	<wp:tag><wp:term_id>60</wp:term_id><wp:tag_slug>opioneers</wp:tag_slug><wp:tag_name><![CDATA[o'pioneers]]></wp:tag_name></wp:tag>
-	<wp:tag><wp:term_id>88</wp:term_id><wp:tag_slug>obama</wp:tag_slug><wp:tag_name><![CDATA[obama]]></wp:tag_name></wp:tag>
-	<wp:tag><wp:term_id>39</wp:term_id><wp:tag_slug>occupy</wp:tag_slug><wp:tag_name><![CDATA[occupy]]></wp:tag_name></wp:tag>
-	<wp:tag><wp:term_id>106</wp:term_id><wp:tag_slug>perl</wp:tag_slug><wp:tag_name><![CDATA[perl]]></wp:tag_name></wp:tag>
-	<wp:tag><wp:term_id>17</wp:term_id><wp:tag_slug>philadelphia</wp:tag_slug><wp:tag_name><![CDATA[philadelphia]]></wp:tag_name></wp:tag>
-	<wp:tag><wp:term_id>9</wp:term_id><wp:tag_slug>php</wp:tag_slug><wp:tag_name><![CDATA[php]]></wp:tag_name></wp:tag>
-	<wp:tag><wp:term_id>100</wp:term_id><wp:tag_slug>pid</wp:tag_slug><wp:tag_name><![CDATA[pid]]></wp:tag_name></wp:tag>
-	<wp:tag><wp:term_id>87</wp:term_id><wp:tag_slug>politics</wp:tag_slug><wp:tag_name><![CDATA[politics]]></wp:tag_name></wp:tag>
-  <wp:tag><wp:term_id>119</wp:term_id><wp:tag_slug>postgres</wp:tag_slug><wp:tag_name><![CDATA[postgres]]></wp:tag_name></wp:tag>
-	<wp:tag><wp:term_id>113</wp:term_id><wp:tag_slug>programming</wp:tag_slug><wp:tag_name><![CDATA[programming]]></wp:tag_name></wp:tag>
-	<wp:tag><wp:term_id>10</wp:term_id><wp:tag_slug>rails</wp:tag_slug><wp:tag_name><![CDATA[rails]]></wp:tag_name></wp:tag>
-	<wp:tag><wp:term_id>21</wp:term_id><wp:tag_slug>real-estate</wp:tag_slug><wp:tag_name><![CDATA[real estate]]></wp:tag_name></wp:tag>
-	<wp:tag><wp:term_id>107</wp:term_id><wp:tag_slug>regex</wp:tag_slug><wp:tag_name><![CDATA[regex]]></wp:tag_name></wp:tag>
-	<wp:tag><wp:term_id>13</wp:term_id><wp:tag_slug>regexp</wp:tag_slug><wp:tag_name><![CDATA[regexp]]></wp:tag_name></wp:tag>
-	<wp:tag><wp:term_id>12</wp:term_id><wp:tag_slug>regular-expressions</wp:tag_slug><wp:tag_name><![CDATA[regular expressions]]></wp:tag_name></wp:tag>
-	<wp:tag><wp:term_id>92</wp:term_id><wp:tag_slug>rhok</wp:tag_slug><wp:tag_name><![CDATA[rhok]]></wp:tag_name></wp:tag>
-	<wp:tag><wp:term_id>103</wp:term_id><wp:tag_slug>righteousness</wp:tag_slug><wp:tag_name><![CDATA[righteousness]]></wp:tag_name></wp:tag>
-	<wp:tag><wp:term_id>75</wp:term_id><wp:tag_slug>ring-of-fire</wp:tag_slug><wp:tag_name><![CDATA[ring of fire]]></wp:tag_name></wp:tag>
-	<wp:tag><wp:term_id>23</wp:term_id><wp:tag_slug>riot</wp:tag_slug><wp:tag_name><![CDATA[riot]]></wp:tag_name></wp:tag>
-	<wp:tag><wp:term_id>11</wp:term_id><wp:tag_slug>ruby</wp:tag_slug><wp:tag_name><![CDATA[ruby]]></wp:tag_name></wp:tag>
-	<wp:tag><wp:term_id>90</wp:term_id><wp:tag_slug>sandy</wp:tag_slug><wp:tag_name><![CDATA[sandy]]></wp:tag_name></wp:tag>
-	<wp:tag><wp:term_id>53</wp:term_id><wp:tag_slug>sarah</wp:tag_slug><wp:tag_name><![CDATA[sarah]]></wp:tag_name></wp:tag>
-	<wp:tag><wp:term_id>68</wp:term_id><wp:tag_slug>skateboarding</wp:tag_slug><wp:tag_name><![CDATA[skateboarding]]></wp:tag_name></wp:tag>
-	<wp:tag><wp:term_id>44</wp:term_id><wp:tag_slug>subway</wp:tag_slug><wp:tag_name><![CDATA[subway]]></wp:tag_name></wp:tag>
-	<wp:tag><wp:term_id>85</wp:term_id><wp:tag_slug>tar</wp:tag_slug><wp:tag_name><![CDATA[tar]]></wp:tag_name></wp:tag>
-	<wp:tag><wp:term_id>95</wp:term_id><wp:tag_slug>time</wp:tag_slug><wp:tag_name><![CDATA[time]]></wp:tag_name></wp:tag>
-	<wp:tag><wp:term_id>34</wp:term_id><wp:tag_slug>toread</wp:tag_slug><wp:tag_name><![CDATA[toread]]></wp:tag_name></wp:tag>
-	<wp:tag><wp:term_id>40</wp:term_id><wp:tag_slug>ucdavis</wp:tag_slug><wp:tag_name><![CDATA[ucdavis]]></wp:tag_name></wp:tag>
-	<wp:tag><wp:term_id>22</wp:term_id><wp:tag_slug>uk</wp:tag_slug><wp:tag_name><![CDATA[uk]]></wp:tag_name></wp:tag>
-	<wp:tag><wp:term_id>5</wp:term_id><wp:tag_slug>vim</wp:tag_slug><wp:tag_name><![CDATA[vim]]></wp:tag_name></wp:tag>
-	<wp:tag><wp:term_id>41</wp:term_id><wp:tag_slug>west-philly</wp:tag_slug><wp:tag_name><![CDATA[west philly]]></wp:tag_name></wp:tag>
+  <wp:category><wp:term_id>4</wp:term_id><wp:category_nicename>code</wp:category_nicename><wp:category_parent></wp:category_parent><wp:cat_name><![CDATA[Code]]></wp:cat_name></wp:category>
+  <wp:category><wp:term_id>51</wp:term_id><wp:category_nicename>philadelphia</wp:category_nicename><wp:category_parent></wp:category_parent><wp:cat_name><![CDATA[Philadelphia]]></wp:cat_name></wp:category>
+  <wp:category><wp:term_id>74</wp:term_id><wp:category_nicename>virginia</wp:category_nicename><wp:category_parent></wp:category_parent><wp:cat_name><![CDATA[Virginia]]></wp:cat_name></wp:category>
+  <wp:tag><wp:term_id>5</wp:term_id><wp:tag_slug>vim</wp:tag_slug><wp:tag_name><![CDATA[vim]]></wp:tag_name></wp:tag>
+  <wp:tag><wp:term_id>41</wp:term_id><wp:tag_slug>west-philly</wp:tag_slug><wp:tag_name><![CDATA[west philly]]></wp:tag_name></wp:tag>
 
-	<generator>http://wordpress.org/?v=3.6</generator>
+  <generator>http://wordpress.org/?v=3.6</generator>
 
-	<item>
-		<title>A Title</title>
-		<link>http://someblog.com/?p=84</link>
-		<pubDate>Thu, 01 Jan 1970 00:00:00 +0000</pubDate>
-		<dc:creator>admin</dc:creator>
-		<guid isPermaLink="false">http://someblog.com/?p=84</guid>
-		<description></description>
-		<content:encoded>Paragraph one.
+  <item>
+    <title>A Title</title>
+    <link>http://someblog.com/?p=84</link>
+    <pubDate>Thu, 01 Jan 1970 00:00:00 +0000</pubDate>
+    <dc:creator>admin</dc:creator>
+    <guid isPermaLink="false">http://someblog.com/?p=84</guid>
+    <description></description>
+    <content:encoded>Paragraph one.
 
       Paragraph two.
     </content:encoded>
-		<excerpt:encoded><![CDATA[]]></excerpt:encoded>
-		<wp:post_id>84</wp:post_id>
-		<wp:post_date>2012-06-08 03:21:41</wp:post_date>
-		<wp:post_date_gmt>0000-00-00 00:00:00</wp:post_date_gmt>
-		<wp:comment_status>open</wp:comment_status>
-		<wp:ping_status>open</wp:ping_status>
-		<wp:post_name></wp:post_name>
-		<wp:status>draft</wp:status>
-		<wp:post_parent>0</wp:post_parent>
-		<wp:menu_order>0</wp:menu_order>
-		<wp:post_type>post</wp:post_type>
-		<wp:post_password></wp:post_password>
-		<wp:is_sticky>0</wp:is_sticky>
-		<category domain="category" nicename="uncategorized"><![CDATA[Uncategorized]]></category>
-		<wp:postmeta>
-			<wp:meta_key>_edit_last</wp:meta_key>
-			<wp:meta_value><![CDATA[1]]></wp:meta_value>
-		</wp:postmeta>
-	</item>
-	<item>
-		<title>A second title</title>
-		<link>http://someblog.com/?p=209</link>
-		<pubDate>Thu, 01 Jan 1970 00:00:00 +0000</pubDate>
-		<dc:creator>admin</dc:creator>
-		<guid isPermaLink="false">http://someblog.com/?p=209</guid>
-		<description></description>
+    <excerpt:encoded><![CDATA[]]></excerpt:encoded>
+    <wp:post_id>84</wp:post_id>
+    <wp:post_date>2012-06-08 03:21:41</wp:post_date>
+    <wp:post_date_gmt>0000-00-00 00:00:00</wp:post_date_gmt>
+    <wp:comment_status>open</wp:comment_status>
+    <wp:ping_status>open</wp:ping_status>
+    <wp:post_name></wp:post_name>
+    <wp:status>draft</wp:status>
+    <wp:post_parent>0</wp:post_parent>
+    <wp:menu_order>0</wp:menu_order>
+    <wp:post_type>post</wp:post_type>
+    <wp:post_password></wp:post_password>
+    <wp:is_sticky>0</wp:is_sticky>
+    <category domain="category" nicename="uncategorized"><![CDATA[Uncategorized]]></category>
+    <wp:postmeta>
+      <wp:meta_key>_edit_last</wp:meta_key>
+      <wp:meta_value><![CDATA[1]]></wp:meta_value>
+    </wp:postmeta>
+  </item>
+  <item>
+    <title>A second title</title>
+    <link>http://someblog.com/?p=209</link>
+    <pubDate>Thu, 01 Jan 1970 00:00:00 +0000</pubDate>
+    <dc:creator>admin</dc:creator>
+    <guid isPermaLink="false">http://someblog.com/?p=209</guid>
+    <description></description>
     <content:encoded><![CDATA[]]> &lt;strong&gt;Foo&lt;/strong&gt;</content:encoded>
-		<excerpt:encoded><![CDATA[]]></excerpt:encoded>
-		<wp:post_id>209</wp:post_id>
-		<wp:post_date>2011-07-25 13:11:26</wp:post_date>
-		<wp:post_date_gmt>0000-00-00 00:00:00</wp:post_date_gmt>
-		<wp:comment_status>open</wp:comment_status>
-		<wp:ping_status>open</wp:ping_status>
-		<wp:post_name></wp:post_name>
-		<wp:status>draft</wp:status>
-		<wp:post_parent>0</wp:post_parent>
-		<wp:menu_order>0</wp:menu_order>
-		<wp:post_type>post</wp:post_type>
-		<wp:post_password></wp:post_password>
-		<wp:is_sticky>0</wp:is_sticky>
-		<category domain="category" nicename="some_tag"><![CDATA[Some_tag]]></category>
-		<category domain="category" nicename="another tag"><![CDATA[Another Tag]]></category>
-		<category domain="post_tag" nicename="tag"><![CDATA[tag]]></category>
-		<wp:postmeta>
-			<wp:meta_key>_edit_last</wp:meta_key>
-			<wp:meta_value><![CDATA[1]]></wp:meta_value>
-		</wp:postmeta>
-	</item>
-	<item>
-		<title>A third title: With colon</title>
-		<link>http://someblog.com/?p=210</link>
-		<pubDate>Thu, 01 Jan 1970 00:00:00 +0000</pubDate>
-		<dc:creator>admin</dc:creator>
-		<guid isPermaLink="false">http://someblog.com/?p=209</guid>
-		<description></description>
-		<content:encoded><![CDATA[]]>Foo</content:encoded>
-		<excerpt:encoded><![CDATA[]]></excerpt:encoded>
-		<wp:post_id>210</wp:post_id>
-		<wp:post_date>2011-07-26 13:11:26</wp:post_date>
-		<wp:post_date_gmt>0000-00-00 00:00:00</wp:post_date_gmt>
-		<wp:comment_status>open</wp:comment_status>
-		<wp:ping_status>open</wp:ping_status>
-		<wp:post_name></wp:post_name>
-		<wp:status>draft</wp:status>
-		<wp:post_parent>0</wp:post_parent>
-		<wp:menu_order>0</wp:menu_order>
-		<wp:post_type>post</wp:post_type>
-		<wp:post_password></wp:post_password>
-		<wp:is_sticky>0</wp:is_sticky>
-		<category domain="category" nicename="some_tag"><![CDATA[Some_tag]]></category>
-		<category domain="category" nicename="another tag"><![CDATA[Another Tag]]></category>
-		<category domain="post_tag" nicename="tag"><![CDATA[tag]]></category>
-		<wp:postmeta>
-			<wp:meta_key>_edit_last</wp:meta_key>
-			<wp:meta_value><![CDATA[1]]></wp:meta_value>
-		</wp:postmeta>
-	</item>
-	</channel>
+    <excerpt:encoded><![CDATA[]]></excerpt:encoded>
+    <wp:post_id>209</wp:post_id>
+    <wp:post_date>2011-07-25 13:11:26</wp:post_date>
+    <wp:post_date_gmt>0000-00-00 00:00:00</wp:post_date_gmt>
+    <wp:comment_status>open</wp:comment_status>
+    <wp:ping_status>open</wp:ping_status>
+    <wp:post_name></wp:post_name>
+    <wp:status>draft</wp:status>
+    <wp:post_parent>0</wp:post_parent>
+    <wp:menu_order>0</wp:menu_order>
+    <wp:post_type>post</wp:post_type>
+    <wp:post_password></wp:post_password>
+    <wp:is_sticky>0</wp:is_sticky>
+    <category domain="category" nicename="some_tag"><![CDATA[Some_tag]]></category>
+    <category domain="category" nicename="another tag"><![CDATA[Another Tag]]></category>
+    <category domain="post_tag" nicename="tag"><![CDATA[tag]]></category>
+    <wp:postmeta>
+      <wp:meta_key>_edit_last</wp:meta_key>
+      <wp:meta_value><![CDATA[1]]></wp:meta_value>
+    </wp:postmeta>
+  </item>
+  <item>
+    <title>A third title: With colon</title>
+    <link>http://someblog.com/?p=210</link>
+    <pubDate>Thu, 01 Jan 1970 00:00:00 +0000</pubDate>
+    <dc:creator>admin</dc:creator>
+    <guid isPermaLink="false">http://someblog.com/?p=209</guid>
+    <description></description>
+    <content:encoded><![CDATA[]]>Foo</content:encoded>
+    <excerpt:encoded><![CDATA[]]></excerpt:encoded>
+    <wp:post_id>210</wp:post_id>
+    <wp:post_date>2011-07-26 13:11:26</wp:post_date>
+    <wp:post_date_gmt>0000-00-00 00:00:00</wp:post_date_gmt>
+    <wp:comment_status>open</wp:comment_status>
+    <wp:ping_status>open</wp:ping_status>
+    <wp:post_name></wp:post_name>
+    <wp:status>draft</wp:status>
+    <wp:post_parent>0</wp:post_parent>
+    <wp:menu_order>0</wp:menu_order>
+    <wp:post_type>post</wp:post_type>
+    <wp:post_password></wp:post_password>
+    <wp:is_sticky>0</wp:is_sticky>
+    <category domain="category" nicename="some_tag"><![CDATA[Some_tag]]></category>
+    <category domain="category" nicename="another tag"><![CDATA[Another Tag]]></category>
+    <category domain="post_tag" nicename="tag"><![CDATA[tag]]></category>
+    <wp:postmeta>
+      <wp:meta_key>_edit_last</wp:meta_key>
+      <wp:meta_value><![CDATA[1]]></wp:meta_value>
+    </wp:postmeta>
+  </item>
+  </channel>
 </rss>
