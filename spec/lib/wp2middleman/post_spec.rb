@@ -52,6 +52,19 @@ describe WP2Middleman::Post do
     it { should eq "private" }
   end
 
+  describe "#published?" do
+    subject { post_one.published? }
+
+    it { should eq true }
+
+    context "#status is not 'publish'" do
+      subject { post_three.published? }
+
+      it { should eq false }
+
+    end
+  end
+
   describe "#content" do
     subject { post_one.content }
 

@@ -34,6 +34,10 @@ module WP2Middleman
       post.xpath("wp:status").first.inner_text
     end
 
+    def published?
+      status == 'publish'
+    end
+
     def content
       post.at_xpath(".//content:encoded").inner_text
     end
