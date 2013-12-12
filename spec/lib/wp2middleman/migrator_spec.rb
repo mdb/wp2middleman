@@ -11,11 +11,12 @@ describe WP2Middleman::Migrator do
   describe "#migrate" do
 
     before :each do
-      migrator.stub :ensure_export_directory
-      migrator.stub :write_file
+      FileUtils.stub :mkdir_p
+      File.stub :write
     end
 
     it "ensures there is an export directory" do
+      File.stub :open
       migrator.should_receive :ensure_export_directory
       migrator.migrate
     end
@@ -108,7 +109,23 @@ describe WP2Middleman::Migrator do
     it { should eq("#{Dir.pwd}/export/") }
   end
 
-  # pending
-  describe "#ensure_output_directory" do
+  describe "#ensure_export_directory" do
+    it "makes the export directory if it's not already there" do
+      File.stub(:directory?).and_return false
+
+      FileUtils.should receive(:mkdir_p).with("#{Dir.pwd}/export/")
+
+      migrator.ensure_export_directory
+    end
+
+    context "the export directory is already there" do
+      it "does not create it" do
+        File.stub(:directory?).and_return true
+
+        migrator.ensure_export_directory
+
+        FileUtils.should_not receive(:mkdir_p).with("#{Dir.pwd}/export/")
+      end
+    end
   end
 end
