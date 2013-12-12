@@ -32,20 +32,20 @@ describe WP2Middleman::Migrator do
 
   describe "#file_content" do
     it "properly formats a post as a Middleman-style post" do
-      expect(migrator.file_content(migrator.posts[1])).to eq("---\ntitle: A second title\ndate: 2011-07-25\ntags: some_tag, another tag, tag\n---\n\n <strong>Foo</strong>")
+      expect(migrator.file_content(migrator.posts[1])).to eq("---\ntitle: 'A second title'\ndate: 2011-07-25\ntags: some_tag, another tag, tag\n---\n\n <strong>Foo</strong>")
     end
 
     context "its behavior if @body_to_markdown is true" do
       let(:migrator) { WP2Middleman::Migrator.new(file, body_to_markdown: true) }
 
       it "formats the post body as markdown" do
-        expect(migrator.file_content(migrator.posts[1])).to eq("---\ntitle: A second title\ndate: 2011-07-25\ntags: some_tag, another tag, tag\n---\n\n**Foo**")
+        expect(migrator.file_content(migrator.posts[1])).to eq("---\ntitle: 'A second title'\ndate: 2011-07-25\ntags: some_tag, another tag, tag\n---\n\n**Foo**")
       end
     end
 
     context "the post is not published" do
       it "reports 'published: false' in the post's frontmatter" do
-        expect(migrator.file_content(migrator.posts[2])).to eq("---\ntitle: A third title: With colon\ndate: 2011-07-26\ntags: some_tag, another tag, tag\npublished: false---\n\nFoo")
+        expect(migrator.file_content(migrator.posts[2])).to eq("---\ntitle: 'A third title: With colon'\ndate: 2011-07-26\ntags: some_tag, another tag, tag\npublished: false---\n\nFoo")
       end
     end
   end

@@ -26,7 +26,7 @@ module WP2Middleman
 
     def file_content(post)
       file_content = "---\n"
-      file_content += "title: #{post.title}\n"
+      file_content += "title: '#{post.title}'\n"
       file_content += "date: #{post.date_published}\n"
       file_content += "tags: #{post.tags.join(', ')}\n"
 
