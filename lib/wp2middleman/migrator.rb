@@ -29,6 +29,11 @@ module WP2Middleman
       file_content += "title: #{post.title}\n"
       file_content += "date: #{post.date_published}\n"
       file_content += "tags: #{post.tags.join(', ')}\n"
+
+      if !post.published?
+        file_content += "published: false"
+      end
+
       file_content += "---\n\n"
       file_content += formatted_post_content(post)
 
