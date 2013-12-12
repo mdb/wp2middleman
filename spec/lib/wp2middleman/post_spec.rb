@@ -46,6 +46,12 @@ describe WP2Middleman::Post do
     it { should eq "2012-06-08" }
   end
 
+  describe "#status" do
+    subject { post_three.status }
+
+    it { should eq "private" }
+  end
+
   describe "#content" do
     subject { post_one.content }
 
