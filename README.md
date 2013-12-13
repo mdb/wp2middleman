@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/mdb/wp2middleman.png?branch=master)](https://travis-ci.org/mdb/wp2middleman)
+
 # wp2middleman
 
 Migrate the posts contained in a Wordpress XML export file to Middleman-style markdown files.
