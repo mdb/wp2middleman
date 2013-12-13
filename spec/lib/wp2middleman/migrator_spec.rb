@@ -27,8 +27,26 @@ describe WP2Middleman::Migrator do
     end
   end
 
-  # pending
   describe "#write_file" do
+    before :each do
+      @post = migrator.posts[0]
+    end
+
+    it "ensures that the post it's passed contains valid data" do
+      migrator.should_receive(:valid_post_data).with(@post)
+      migrator.write_file(@post)
+    end
+
+    it "writes the proper markdown file" do
+      File.should_receive(:open).with( "#{Dir.pwd}/export/2012-06-08-A-Title.html.markdown.html.markdown", "w")
+      migrator.write_file(@post)
+    end
+
+    # pending
+    xit "writes the proper markdown file" do
+      File.should_receive(:write).with(migrator.file_content(@post))
+      migrator.write_file(@post)
+    end
   end
 
   describe "#file_content" do
