@@ -6,6 +6,10 @@ describe WP2Middleman::CLI do
   let(:cli) { described_class.new }
 
   describe "#wp2mm" do
+    before do
+      cli.stub :say
+    end
+
     context "it's not passed any arguments" do
       it "returns usage details" do
         cli.should_receive(:usage).exactly(1).times
