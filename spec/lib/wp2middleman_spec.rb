@@ -10,7 +10,7 @@ describe WP2Middleman do
       @migrator_double = double(WP2Middleman::Migrator)
     end
 
-    it "verifies environment variables and uploads the directory and its contents to the specified S3 bucket" do
+    it "migrates the posts in the wordpress XML export file it's passed" do
       WP2Middleman::Migrator.should_receive(:new).with('foo').and_return(@migrator_double)
       @migrator_double.should_receive(:migrate)
 
