@@ -41,7 +41,7 @@ module WP2Middleman
     end
 
     def formatted_post_content(post)
-      if @body_to_markdown == true
+      if @body_to_markdown
         post.markdown_content
       else
         post.content

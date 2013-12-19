@@ -11,7 +11,7 @@ describe WP2Middleman do
     end
 
     it "migrates the posts in the wordpress XML export file it's passed" do
-      WP2Middleman::Migrator.should_receive(:new).with('foo').and_return(@migrator_double)
+      WP2Middleman::Migrator.should_receive(:new).with('foo', body_to_markdown: false).and_return(@migrator_double)
       @migrator_double.should_receive(:migrate)
 
       WP2Middleman.migrate 'foo'

@@ -33,7 +33,7 @@ describe WP2Middleman::CLI do
       end
 
       it "migrates the posts listed in the XML file" do
-        WP2Middleman.should_receive(:migrate).with "foo"
+        WP2Middleman.should_receive(:migrate).with "foo", nil
         cli.wp2mm "foo"
       end
 
