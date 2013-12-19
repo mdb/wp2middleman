@@ -18,3 +18,40 @@ gem install wp2middleman-VERSION.gem
 ```
 wp2mm some_wordpress_export.xml
 ```
+
+Results in YYYY-MM-DD-Some-Title.html.markdown, formatted as such:
+
+```
+---
+title: 'Some Title'
+date: YYYY-MM-DD
+tags: foo, bar
+---
+
+<p>The post content in HTML or text, depending on how it was saved to Wordpress.</p>
+<ul>
+<li>list item</li>
+<li>another list item</li>
+</ul>
+```
+
+### Optional parameters
+
+```
+wp2mm some_wordpress_export.xml --body_to_markdown true
+```
+
+Results in YYYY-MM-DD-Some-Title.html.markdown, formatted as such:
+
+```
+---
+title: 'Some Title'
+date: YYYY-MM-DD
+tags: foo, bar
+---
+
+The post content in markdown or text, depending on how it was saved to Wordpress.
+
+* list item
+* another list item
+```
