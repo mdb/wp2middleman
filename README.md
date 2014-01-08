@@ -37,6 +37,11 @@ tags: foo, bar
 
 ### Optional parameters
 
+* `--body_to_markdown true`: converts html content to markdown
+* `--include_post_id true`: includes the original Wordpress post_id in the frontmatter (may be useful for migrating)
+
+Example:
+
 ```
 wp2mm some_wordpress_export.xml --body_to_markdown true
 ```

@@ -8,6 +8,14 @@ module WP2Middleman
       @post = nokogiri_post_doc
     end
 
+    def id
+      post.xpath("wp:post_id").first.inner_text
+    end
+
+    def type
+      post.xpath("wp:post_type").first.inner_text
+    end
+
     def title
       post.css('title').text
     end
