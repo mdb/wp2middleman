@@ -1,0 +1,15 @@
+#!/bin/sh
+
+set -e
+
+echo "===> Building the wp2middleman gem locally"
+#gem build wp2middleman.gemspec
+
+# tail -1 grabs the last line in the output of "gem build ..."
+# which is "File: wp2middleman-0.0.1.gem"
+# awk then removes the "File: " part, which leaves us with the
+# full filename we can pass to "gem install"
+OUTPUT=$(gem build wp2middleman.gemspec | tail -1 | awk -F: '{print $NF}')
+
+echo "===> Installing the wp2middleman gem locally"
+gem install $OUTPUT

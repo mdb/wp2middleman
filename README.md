@@ -9,9 +9,12 @@ Migrate the posts contained in a Wordpress XML export file to Middleman-style ma
 ```
 git clone http://github.com/mdb/wp2middleman
 cd wp2middleman
-gem build wp2middleman.gemspec
-gem install wp2middleman-VERSION.gem
+script/install
 ```
+
+If you get a `permission denied` message, set the correct permissions, then run `script/install` again:
+
+    chmod -R 755 script
 
 ## Commandline Usage
 
