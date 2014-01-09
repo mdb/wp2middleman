@@ -19,7 +19,7 @@ module WP2Middleman
     end
 
     def filename
-      "#{date_published}-#{title_for_filename}.html.markdown"
+      "#{date_published}-#{title_for_filename}"
     end
 
     def post_date
