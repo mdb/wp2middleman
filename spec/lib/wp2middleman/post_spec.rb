@@ -25,12 +25,12 @@ describe WP2Middleman::Post do
   describe "#filename" do
     subject { post_one.filename }
 
-    it { should eq "2012-06-08-A-Title.html.markdown" }
+    it { should eq "2012-06-08-A-Title" }
 
     context "post titles with odd characters such as colons" do
       subject { post_three.filename }
 
-      it { should eq "2011-07-26-A-third-title-With-colon.html.markdown" }
+      it { should eq "2011-07-26-A-third-title-With-colon" }
     end
   end
 

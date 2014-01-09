@@ -38,7 +38,7 @@ describe WP2Middleman::Migrator do
     end
 
     it "writes the proper markdown file" do
-      File.should_receive(:open).with( "#{Dir.pwd}/export/2012-06-08-A-Title.html.markdown.html.markdown", "w")
+      File.should_receive(:open).with( "#{Dir.pwd}/export/2012-06-08-A-Title.html.markdown", "w")
       migrator.write_file(@post)
     end
 
@@ -85,7 +85,7 @@ describe WP2Middleman::Migrator do
 
   describe "#full_filename" do
     it "returns the full filename for a Middleman-style markdown post" do
-      expect(migrator.full_filename(migrator.posts[0])).to eq("#{Dir.pwd}/export/2012-06-08-A-Title.html.markdown.html.markdown")
+      expect(migrator.full_filename(migrator.posts[0])).to eq("#{Dir.pwd}/export/2012-06-08-A-Title.html.markdown")
     end
   end
 
