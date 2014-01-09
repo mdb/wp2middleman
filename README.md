@@ -10,7 +10,15 @@ Migrate the posts contained in a Wordpress XML export file to Middleman-style ma
 git clone http://github.com/mdb/wp2middleman
 cd wp2middleman
 gem build wp2middleman.gemspec
+```
+Make a note of the version of the gem in the command line output, and insert it in the place of `VERSION` in the following command:
+
+```
 gem install wp2middleman-VERSION.gem
+```
+For example, if the version is `0.0.1`, you would run this:
+```
+gem install wp2middleman-0.0.1.gem
 ```
 
 ## Commandline Usage
