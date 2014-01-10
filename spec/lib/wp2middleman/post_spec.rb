@@ -71,12 +71,6 @@ describe WP2Middleman::Post do
     it { should eq "Paragraph one.\n\n      Paragraph two.\n    " }
   end
 
-  describe "#sanitized_content" do
-    subject { post_three.sanitized_content }
-
-    it { should eq "Foo" }
-  end
-
   describe "#markdown_content" do
     subject { post_two.markdown_content }
 
