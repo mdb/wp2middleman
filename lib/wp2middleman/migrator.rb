@@ -31,7 +31,7 @@ module WP2Middleman
       file_content += "tags: #{post.tags.join(', ')}\n"
 
       if !post.published?
-        file_content += "published: false"
+        file_content += "published: false\n"
       end
 
       file_content += "---\n\n"
