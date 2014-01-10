@@ -64,7 +64,7 @@ describe WP2Middleman::Migrator do
 
     context "the post is not published" do
       it "reports 'published: false' in the post's frontmatter" do
-        expect(migrator.file_content(migrator.posts[2])).to eq("---\ntitle: 'A third title: With colon'\ndate: 2011-07-26\ntags: some_tag, another tag, tag\npublished: false---\n\nFoo")
+        expect(migrator.file_content(migrator.posts[2])).to eq("---\ntitle: 'A third title: With colon'\ndate: 2011-07-26\ntags: some_tag, another tag, tag\npublished: false\n---\n\nFoo")
       end
     end
   end
