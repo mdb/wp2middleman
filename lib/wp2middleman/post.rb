@@ -42,23 +42,11 @@ module WP2Middleman
       post.at_xpath(".//content:encoded").inner_text
     end
 
-    def sanitized_content
-      clean_content = content
-
-      clean_content.gsub!("<encoded>", " ")
-      clean_content.gsub!("</encoded>", " ")
-      clean_content.gsub!("&gt;", " ")
-      clean_content.gsub!("&lt;", " ")
-      clean_content.gsub("<![CDATA[", " ")
-      clean_content.gsub!("]];", " ")
-      clean_content.gsub!("]]>;", " ")
-
-      clean_content
-    end
-
     def markdown_content
       html = HTMLPage.new :contents => content
-
+      html.iframe do |node,_|
+        "#{node}"
+      end
       html.markdown
     end
 
