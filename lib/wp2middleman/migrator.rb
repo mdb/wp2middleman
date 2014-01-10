@@ -26,18 +26,32 @@ module WP2Middleman
 
     def file_content(post)
       file_content = "---\n"
-      file_content += "title: '#{post.title}'\n"
-      file_content += "date: #{post.date_published}\n"
-      file_content += "tags: #{post.tags.join(', ')}\n"
-
-      if !post.published?
-        file_content += "published: false\n"
-      end
-
+      file_content += formatted_frontmatter(post)
       file_content += "---\n\n"
       file_content += formatted_post_content(post)
 
       file_content
+    end
+
+    def format_string(string)
+      # if the string has special characters, quote it
+      if !string.match(/\A[[:alnum:] _]+\z/)
+        "'#{string}'"
+      else
+        string
+      end
+    end
+
+    def formatted_frontmatter(post)
+      frontmatter = "title: #{format_string(post.title)}\n"
+      frontmatter += "date: #{post.date_published}\n"
+      frontmatter += "tags: #{post.tags.map{|t| format_string(t)}.join(', ')}\n"
+
+      if !post.published?
+        frontmatter += "published: false\n"
+      end
+
+      frontmatter
     end
 
     def formatted_post_content(post)
