@@ -62,7 +62,7 @@ describe WP2Middleman::Migrator do
       end
 
       it "includes iframe content" do
-        expect(migrator.file_content(migrator.posts[3])).to eq("---\ntitle: 'A fourth item with iframe content'\ndate: 2011-07-26\ntags: some_tag, another tag, tag\npublished: false\n---\n\nHere's a post with an iframe.\n\n\n<iframe width=\"100%\" height=\"166\" scrolling=\"no\" frameborder=\"no\" src=\"http://w.soundcloud.com/player/?url=http%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F77999037&amp;show_artwork=true\"><a href=\"http://monfresh.com\">Fresh Tunes</a></iframe>")
+        expect(migrator.file_content(migrator.posts[3])).to eq("---\ntitle: A fourth item with iframe content\ndate: '2011-07-26'\ntags:\n- some_tag\n- another tag\n- tag\npublished: false\n---\n\nHere's a post with an iframe.\n\n\n<iframe width=\"100%\" height=\"166\" scrolling=\"no\" frameborder=\"no\" src=\"http://w.soundcloud.com/player/?url=http%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F77999037&amp;show_artwork=true\"><a href=\"http://monfresh.com\">Fresh Tunes</a></iframe>\n")
       end
     end
 
