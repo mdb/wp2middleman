@@ -51,14 +51,14 @@ describe WP2Middleman::Migrator do
 
   describe "#file_content" do
     it "properly formats a post as a Middleman-style post" do
-      expect(migrator.file_content(migrator.posts[1])).to eq("---\ntitle: 'A second title'\ndate: 2011-07-25\ntags: some_tag, another tag, tag\n---\n\n <strong>Foo</strong>")
+      expect(migrator.file_content(migrator.posts[1])).to eq("---\ntitle: A second title\ndate: 2011-07-25\ntags: some_tag, another tag, tag\n---\n\n <strong>Foo</strong>")
     end
 
     context "its behavior if @body_to_markdown is true" do
       let(:migrator) { WP2Middleman::Migrator.new(file, body_to_markdown: true) }
 
       it "formats the post body as markdown" do
-        expect(migrator.file_content(migrator.posts[1])).to eq("---\ntitle: 'A second title'\ndate: 2011-07-25\ntags: some_tag, another tag, tag\n---\n\n**Foo**")
+        expect(migrator.file_content(migrator.posts[1])).to eq("---\ntitle: A second title\ndate: 2011-07-25\ntags: some_tag, another tag, tag\n---\n\n**Foo**")
       end
 
       it "includes iframe and comment" do
@@ -69,6 +69,42 @@ describe WP2Middleman::Migrator do
     context "the post is not published" do
       it "reports 'published: false' in the post's frontmatter" do
         expect(migrator.file_content(migrator.posts[2])).to eq("---\ntitle: 'A third title: With colon'\ndate: 2011-07-26\ntags: some_tag, another tag, tag\npublished: false\n---\n\nFoo")
+      end
+    end
+  end
+
+  describe "#formatted_frontmatter" do
+    context "title has special characters" do
+      let(:post) {
+        double('Post',
+          :post_date => 'post_date',
+          :title => 'title, with, comma',
+          :date_published => '2011-07-25',
+          :tags => %w[some_tag another\ tag tag],
+          :published? => true,
+          :content => 'content'
+        )
+      }
+
+      it "wraps the title in quotes" do
+        expect(migrator.formatted_frontmatter(post)).to eq("title: 'title, with, comma'\ndate: 2011-07-25\ntags: some_tag, another tag, tag\n")
+      end
+    end
+
+    context "title has no special characters" do
+      let(:post) {
+        double('Post',
+          :post_date => 'post_date',
+          :title => 'simple title',
+          :date_published => '2011-07-25',
+          :tags => %w[some_tag another\ tag tag],
+          :published? => true,
+          :content => 'content'
+        )
+      }
+
+      it "does not wrap the title in quotes" do
+        expect(migrator.formatted_frontmatter(post)).to eq("title: simple title\ndate: 2011-07-25\ntags: some_tag, another tag, tag\n")
       end
     end
   end
