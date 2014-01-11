@@ -44,6 +44,9 @@ module WP2Middleman
 
     def markdown_content
       html = HTMLPage.new :contents => content
+      html.comment do |node,_|
+        "#{node}"
+      end
       html.iframe do |node,_|
         "#{node}"
       end

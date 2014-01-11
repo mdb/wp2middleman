@@ -111,15 +111,17 @@
     </wp:postmeta>
   </item>
   <item>
-    <title>A fourth item with iframe content</title>
+    <title>A fourth item with iframe and comment</title>
     <link>http://someblog.com/?p=210</link>
     <pubDate>Thu, 01 Jan 1970 00:00:00 +0000</pubDate>
     <dc:creator>admin</dc:creator>
     <guid isPermaLink="false">http://someblog.com/?p=209</guid>
     <description></description>
-    <content:encoded><![CDATA[Here's a post with an iframe.
+    <content:encoded><![CDATA[Here's a post with an iframe and a comment.
 
-<iframe width="100%" height="166" scrolling="no" frameborder="no" src="http://w.soundcloud.com/player/?url=http%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F77999037&show_artwork=true"><a href="http://monfresh.com">Fresh Tunes</a></iframe>]]></content:encoded>
+<!--more-->
+
+<iframe width="400" height="100" style="position: relative; display: block; width: 400px; height: 100px;" src="http://bandcamp.com/EmbeddedPlayer/v=2/track=833121761/size=venti/bgcol=FFFFFF/linkcol=4285BB/" allowtransparency="true" frameborder="0"><a href="http://dihannmoore.bandcamp.com/track/you-do-it-for-me">&quot;YOU DO IT FOR ME&quot; by DIHANN MOORE</a></iframe>]]></content:encoded>
     <excerpt:encoded><![CDATA[]]></excerpt:encoded>
     <wp:post_id>210</wp:post_id>
     <wp:post_date>2011-07-26 13:11:26</wp:post_date>
