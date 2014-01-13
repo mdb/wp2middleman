@@ -7,7 +7,9 @@ module WP2Middleman
     end
 
     def posts
-      @xml.css('item').map { |post| WP2Middleman::Post.new(post) }
+      @xml.css('item')
+        .map { |post| WP2Middleman::Post.new(post) }
+        .reject { |post| post.type == 'attachment' }
     end
   end
 end

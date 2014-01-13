@@ -34,6 +34,10 @@ module WP2Middleman
       post.xpath("wp:status").first.inner_text
     end
 
+    def type
+      post.xpath("wp:post_type").first.inner_text
+    end
+
     def published?
       status == 'publish'
     end
@@ -44,6 +48,9 @@ module WP2Middleman
 
     def markdown_content
       html = HTMLPage.new :contents => content
+      html.comment do |node,_|
+        "#{node}"
+      end
       html.iframe do |node,_|
         "#{node}"
       end
