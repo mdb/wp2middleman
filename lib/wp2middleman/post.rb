@@ -22,6 +22,10 @@ module WP2Middleman
       "#{date_published}-#{title_for_filename}"
     end
 
+    def field(field)
+      post.xpath(field).first.inner_text
+    end
+
     def post_date
       post.xpath("wp:post_date").first.inner_text
     end

@@ -52,6 +52,12 @@ describe WP2Middleman::Post do
     it { should eq "private" }
   end
 
+  describe "#field" do
+    subject { post_one.field('wp:post_id') }
+
+    it { should eq "84" }
+  end
+
   describe "#published?" do
     subject { post_one.published? }
 
