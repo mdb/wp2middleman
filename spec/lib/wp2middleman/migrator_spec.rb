@@ -51,24 +51,24 @@ describe WP2Middleman::Migrator do
 
   describe "#file_content" do
     it "properly formats a post as a Middleman-style post" do
-      expect(migrator.file_content(migrator.posts[1])).to eq("---\ntitle: 'A second title'\ndate: 2011-07-25\ntags: some_tag, another tag, tag\n---\n\n <strong>Foo</strong>")
+      expect(migrator.file_content(migrator.posts[1])).to eq("---\ntitle: A second title\ndate: '2011-07-25'\ntags:\n- some_tag\n- another tag\n- tag\n---\n\n <strong>Foo</strong>\n")
     end
 
     context "its behavior if @body_to_markdown is true" do
       let(:migrator) { WP2Middleman::Migrator.new(file, body_to_markdown: true) }
 
       it "formats the post body as markdown" do
-        expect(migrator.file_content(migrator.posts[1])).to eq("---\ntitle: 'A second title'\ndate: 2011-07-25\ntags: some_tag, another tag, tag\n---\n\n**Foo**")
+        expect(migrator.file_content(migrator.posts[1])).to eq("---\ntitle: A second title\ndate: '2011-07-25'\ntags:\n- some_tag\n- another tag\n- tag\n---\n\n**Foo**\n")
       end
 
       it "includes iframe and comment" do
-        expect(migrator.file_content(migrator.posts[3])).to eq("---\ntitle: 'A fourth item with iframe and comment'\ndate: 2011-07-26\ntags: some_tag, another tag, tag\npublished: false\n---\n\nHere's a post with an iframe and a comment.\n\n\n<!--more-->\n\n\n<iframe width=\"400\" height=\"100\" style=\"position: relative; display: block; width: 400px; height: 100px;\" src=\"http://bandcamp.com/EmbeddedPlayer/v=2/track=833121761/size=venti/bgcol=FFFFFF/linkcol=4285BB/\" allowtransparency=\"true\" frameborder=\"0\"><a href=\"http://dihannmoore.bandcamp.com/track/you-do-it-for-me\">\"YOU DO IT FOR ME\" by DIHANN MOORE</a></iframe>")
+        expect(migrator.file_content(migrator.posts[3])).to eq("---\ntitle: A fourth item with iframe and comment\ndate: '2011-07-26'\ntags:\n- some_tag\n- another tag\n- tag\npublished: false\n---\n\nHere's a post with an iframe and a comment.\n\n\n<!--more-->\n\n\n<iframe width=\"400\" height=\"100\" style=\"position: relative; display: block; width: 400px; height: 100px;\" src=\"http://bandcamp.com/EmbeddedPlayer/v=2/track=833121761/size=venti/bgcol=FFFFFF/linkcol=4285BB/\" allowtransparency=\"true\" frameborder=\"0\"><a href=\"http://dihannmoore.bandcamp.com/track/you-do-it-for-me\">\"YOU DO IT FOR ME\" by DIHANN MOORE</a></iframe>\n")
       end
     end
 
     context "the post is not published" do
       it "reports 'published: false' in the post's frontmatter" do
-        expect(migrator.file_content(migrator.posts[2])).to eq("---\ntitle: 'A third title: With colon'\ndate: 2011-07-26\ntags: some_tag, another tag, tag\npublished: false\n---\n\nFoo")
+        expect(migrator.file_content(migrator.posts[2])).to eq("---\ntitle: 'A third title: With colon'\ndate: '2011-07-26'\ntags:\n- some_tag\n- another tag\n- tag\npublished: false\n---\n\nFoo\n")
       end
     end
   end

@@ -1,3 +1,5 @@
+require 'yaml'
+
 module WP2Middleman
   class Migrator
 
@@ -25,19 +27,26 @@ module WP2Middleman
     end
 
     def file_content(post)
-      file_content = "---\n"
-      file_content += "title: '#{post.title}'\n"
-      file_content += "date: #{post.date_published}\n"
-      file_content += "tags: #{post.tags.join(', ')}\n"
+      yaml = frontmatter(post).to_yaml.strip
 
-      if !post.published?
-        file_content += "published: false\n"
-      end
+      <<-EOS.gsub(/^ {8}/, '')
+        #{yaml}
+        ---
 
-      file_content += "---\n\n"
-      file_content += formatted_post_content(post)
+        #{formatted_post_content(post)}
+      EOS
+    end
 
-      file_content
+    def frontmatter(post)
+      data = {
+        'title' => post.title,
+        'date' => post.date_published,
+        'tags' => post.tags
+      }
+
+      data['published'] = false if !post.published?
+
+      data
     end
 
     def formatted_post_content(post)
