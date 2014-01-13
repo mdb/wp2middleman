@@ -3,8 +3,9 @@ module WP2Middleman
 
     attr_reader :posts
 
-    def initialize(wp_xml_export_file, body_to_markdown: false)
+    def initialize(wp_xml_export_file, body_to_markdown: false, include_post_id: false)
       @body_to_markdown = body_to_markdown
+      @include_post_id = include_post_id
       @posts = WP2Middleman::PostCollection.new(wp_xml_export_file).posts
     end
 
@@ -29,6 +30,14 @@ module WP2Middleman
       file_content += "title: '#{post.title}'\n"
       file_content += "date: #{post.date_published}\n"
       file_content += "tags: #{post.tags.join(', ')}\n"
+
+      if post.type != 'post'
+        file_content += "post_type: #{post.type}\n"
+      end
+
+      if @include_post_id
+        file_content += "post_id: #{post.id}\n"
+      end
 
       if !post.published?
         file_content += "published: false\n"
