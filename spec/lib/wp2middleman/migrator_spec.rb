@@ -66,6 +66,15 @@ describe WP2Middleman::Migrator do
       end
     end
 
+    context "has been passed include_fields" do
+      let(:migrator) { WP2Middleman::Migrator.new(file, include_fields: ['wp:post_id']) }
+
+      it "includes the property and value from the item's xml in the frontmatter" do
+        expect(migrator.file_content(migrator.posts[1])).to eq("---\ntitle: A second title\ndate: '2011-07-25'\ntags:\n- some_tag\n- another tag\n- tag\nwp:post_id: '209'\n---\n\n <strong>Foo</strong>\n")
+      end
+
+    end
+
     context "the post is not published" do
       it "reports 'published: false' in the post's frontmatter" do
         expect(migrator.file_content(migrator.posts[2])).to eq("---\ntitle: 'A third title: With colon'\ndate: '2011-07-26'\ntags:\n- some_tag\n- another tag\n- tag\npublished: false\n---\n\nFoo\n")

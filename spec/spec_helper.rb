@@ -10,5 +10,5 @@ SimpleCov.start
 require 'wp2middleman'
 
 RSpec.configure do |config|
-  # some (optional) config here
+  config.include CLIHelpers
 end

@@ -33,13 +33,28 @@ describe WP2Middleman::CLI do
       end
 
       it "migrates the posts listed in the XML file" do
-        WP2Middleman.should_receive(:migrate).with "foo", nil
+        WP2Middleman.should_receive(:migrate).with "foo", nil, []
         cli.wp2mm "foo"
       end
 
       it "reports that the directory has been successfully uploaded" do
         cli.should_receive(:say).with("Successfully migrated foo", "\e[32m")
         cli.wp2mm "foo"
+      end
+    end
+
+    context "sets include_fields" do
+      before :each do
+        WP2Middleman.stub(:migrate).and_return false
+        File.stub(:file?).and_return true
+      end
+
+      it "deserializes the values into an array" do
+        WP2Middleman.should_receive(:migrate).with "foo", nil, ['wp:post_id', 'guid']
+
+        capture :stdout do
+          WP2Middleman::CLI.start %w[wp2mm foo --include_fields=wp:post_id guid]
+        end
       end
     end
   end
