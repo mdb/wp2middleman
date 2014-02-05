@@ -21,9 +21,7 @@ module WP2Middleman
 
     def write_file(post)
       if valid_post_data(post)
-        File.open(full_filename(post), "w") do |file|
-          file.write(file_content(post))
-        end
+        File.write(full_filename(post), file_content(post))
       end
     end
 

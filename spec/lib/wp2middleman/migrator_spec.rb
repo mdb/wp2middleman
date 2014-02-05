@@ -38,13 +38,7 @@ describe WP2Middleman::Migrator do
     end
 
     it "writes the proper markdown file" do
-      File.should_receive(:open).with( "#{Dir.pwd}/export/2012-06-08-A-Title.html.markdown", "w")
-      migrator.write_file(@post)
-    end
-
-    # pending
-    xit "writes the proper markdown file" do
-      File.should_receive(:write).with(migrator.file_content(@post))
+      File.should_receive(:write).with("#{Dir.pwd}/export/2012-06-08-A-Title.html.markdown", migrator.file_content(@post))
       migrator.write_file(@post)
     end
   end
