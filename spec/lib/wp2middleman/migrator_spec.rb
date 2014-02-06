@@ -43,6 +43,39 @@ describe WP2Middleman::Migrator do
     end
   end
 
+  describe "#frontmatter" do
+    def post(attributes = {})
+      defaults = {title: "mytitle", date_published: "mydate", tags: "mytags", published?: false}
+      @post ||= double(defaults.merge attributes)
+    end
+
+    it "includes the title, date, and tags from the post" do
+      frontmatter = migrator.frontmatter(post)
+      expect(frontmatter["title"]).to eq("mytitle")
+      expect(frontmatter["date"]).to eq("mydate")
+      expect(frontmatter["tags"]).to eq("mytags")
+    end
+
+    it "sets published to false for unpublished posts" do
+      frontmatter = migrator.frontmatter(post)
+      expect(frontmatter["published"]).to be_false
+    end
+
+    it "sets published to nil for published posts" do
+      frontmatter = migrator.frontmatter(post published?: true)
+      expect(frontmatter["published"]).to be_nil
+    end
+
+    it "includes fields specified in include_fields" do
+      migrator = WP2Middleman::Migrator.new(file, include_fields: ["field1", "field2"])
+      allow(post).to receive(:field).with("field1") { "value1" }
+      allow(post).to receive(:field).with("field2") { "value2" }
+      frontmatter = migrator.frontmatter(post)
+      expect(frontmatter["field1"]).to eq("value1")
+      expect(frontmatter["field2"]).to eq("value2")
+    end
+  end
+
   describe "#file_content" do
     it "properly formats a post as a Middleman-style post" do
       expect(migrator.file_content(migrator.posts[1])).to eq("---\ntitle: A second title\ndate: '2011-07-25'\ntags:\n- some_tag\n- another tag\n- tag\n---\n\n <strong>Foo</strong>\n")
