@@ -37,19 +37,7 @@ module WP2Middleman
     end
 
     def frontmatter(post)
-      data = {
-        'title' => post.title,
-        'date' => post.date_published,
-        'tags' => post.tags
-      }
-
-      data['published'] = false if !post.published?
-
-      @include_fields.each do |field|
-        data[field] = post.field(field)
-      end
-
-      data
+      Frontmatter.new(post).data(@include_fields)
     end
 
     def formatted_post_content(post)
