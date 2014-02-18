@@ -1,12 +1,13 @@
-puts "loading"
+require 'yaml'
 
 module WP2Middleman
   class Frontmatter
-    def initialize post
+    def initialize(post, include_fields: [])
       @post = post
+      @include_fields = include_fields
     end
 
-    def data include_fields=[]
+    def post_data
       data = {
         'title' => post.title,
         'date' => post.date_published,
@@ -22,8 +23,12 @@ module WP2Middleman
       data
     end
 
+    def to_yaml
+      post_data.to_yaml.strip
+    end
+
     private
 
-    attr_reader :post
+    attr_reader :post, :include_fields
   end
 end

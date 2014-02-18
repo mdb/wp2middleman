@@ -26,18 +26,14 @@ module WP2Middleman
     end
 
     def file_content(post)
-      yaml = frontmatter(post).to_yaml.strip
+      frontmatter = Frontmatter.new(post, include_fields: @include_fields)
 
       <<-EOS.gsub(/^ {8}/, '')
-        #{yaml}
+        #{frontmatter.to_yaml}
         ---
 
         #{formatted_post_content(post)}
       EOS
-    end
-
-    def frontmatter(post)
-      Frontmatter.new(post).data(@include_fields)
     end
 
     def formatted_post_content(post)
