@@ -1,6 +1,7 @@
 require 'wp2middleman/version'
 require 'wp2middleman/post'
 require 'wp2middleman/post_collection'
+require 'wp2middleman/frontmatter'
 require 'wp2middleman/migrator'
 require 'wp2middleman/cli'
 
