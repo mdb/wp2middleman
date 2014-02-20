@@ -14,19 +14,17 @@ module WP2Middleman
     def migrate
       ensure_export_directory
 
-      @posts.each do |post|
-        write_file(post)
-      end
-    end
-
-    def write_file(post)
-      if valid_post_data(post)
+      valid_posts.each do |post|
         File.write(full_filename(post), file_content(post))
       end
     end
 
-    def file_content(post)
-      frontmatter = Frontmatter.new(post, include_fields: @include_fields)
+    def valid_posts
+      posts.select &:valid?
+    end
+
+    def file_content(post, include_fields: @include_fields)
+      frontmatter = Frontmatter.new(post, include_fields: include_fields)
 
       <<-EOS.gsub(/^ {8}/, '')
         #{frontmatter.to_yaml}
@@ -46,10 +44,6 @@ module WP2Middleman
 
     def full_filename(post)
       "#{output_path}#{post.filename}.html.markdown"
-    end
-
-    def valid_post_data(post)
-      !(post.post_date.nil? || post.title.nil? || post.date_published.nil? || post.content.nil?)
     end
 
     def output_path

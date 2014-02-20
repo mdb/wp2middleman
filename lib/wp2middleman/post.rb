@@ -18,6 +18,10 @@ module WP2Middleman
       .gsub(/\s+/, '-')
     end
 
+    def valid?
+      !(post_date.nil? || title.nil? || date_published.nil? || content.nil?)
+    end
+
     def filename
       "#{date_published}-#{title_for_filename}"
     end

@@ -9,7 +9,6 @@ describe WP2Middleman::Migrator do
   end
 
   describe "#migrate" do
-
     before :each do
       FileUtils.stub :mkdir_p
       File.stub :write
@@ -22,24 +21,20 @@ describe WP2Middleman::Migrator do
     end
 
     it "writes a middleman markdown file for each post" do
-      migrator.should_receive(:write_file).exactly(4).times
+      File.should_receive(:write).exactly(4).times
       migrator.migrate
     end
-  end
-
-  describe "#write_file" do
-    before :each do
-      @post = migrator.posts[0]
-    end
-
+ 
     it "ensures that the post it's passed contains valid data" do
-      migrator.should_receive(:valid_post_data).with(@post)
-      migrator.write_file(@post)
+      migrator.posts.first.should_receive(:valid?)
+      migrator.migrate
     end
 
     it "writes the proper markdown file" do
-      File.should_receive(:write).with("#{Dir.pwd}/export/2012-06-08-A-Title.html.markdown", migrator.file_content(@post))
-      migrator.write_file(@post)
+      post = migrator.posts.first
+      migrator.stub(:valid_posts).and_return([post])
+      File.should_receive(:write).with("#{Dir.pwd}/export/2012-06-08-A-Title.html.markdown", migrator.file_content(post))
+      migrator.migrate
     end
   end
 
@@ -93,38 +88,6 @@ describe WP2Middleman::Migrator do
   describe "#full_filename" do
     it "returns the full filename for a Middleman-style markdown post" do
       expect(migrator.full_filename(migrator.posts[0])).to eq("#{Dir.pwd}/export/2012-06-08-A-Title.html.markdown")
-    end
-  end
-
-  describe "#valid_post_data" do
-    context "the post's #post_date, #title, #date_published, and #content are not nil" do
-      let(:post) {
-        double('Post',
-          :post_date => 'post_date',
-          :title => 'title',
-          :date_published => 'date_published',
-          :content => 'content'
-        )
-      }
-
-      it "returns true" do
-        expect(migrator.valid_post_data(post)).to eq(true)
-      end
-    end
-
-    context "the post's #post_date, #title, #date_published, or #content is nil" do
-      let(:post) {
-        double('Post',
-          :post_date => nil,
-          :title => 'title',
-          :date_published => 'date_published',
-          :content => 'content'
-        )
-      }
-
-      it "returns false" do
-        expect(migrator.valid_post_data(post)).to eq(false)
-      end
     end
   end
 

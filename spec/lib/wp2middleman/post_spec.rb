@@ -94,4 +94,37 @@ describe WP2Middleman::Post do
       it { should eq [] }
     end
   end
+
+  describe "#valid?" do
+    def post(post_date: Date.new(2014,2,19), title: "Title", date_published: Date.new(2014,2,19), content: "content")
+      post = WP2Middleman::Post.new(double)
+
+      post.stub(:post_date).and_return(post_date)
+      post.stub(:title).and_return(title)
+      post.stub(:date_published).and_return(date_published)
+      post.stub(:content).and_return(content)
+
+      post
+    end
+
+    it "is valid with post_date, title, date_published, and content" do
+      expect(post).to be_valid
+    end
+
+    it "is not valid without post_date" do
+      expect(post(post_date: nil)).to_not be_valid
+    end
+
+    it "is not valid without a title" do
+      expect(post(title: nil)).to_not be_valid
+    end
+
+    it "is not valid without a date_published" do
+      expect(post(date_published: nil)).to_not be_valid
+    end
+
+    it "is not valid without content" do
+      expect(post(content: nil)).to_not be_valid
+    end
+  end
 end
