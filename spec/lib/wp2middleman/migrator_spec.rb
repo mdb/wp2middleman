@@ -25,11 +25,6 @@ describe WP2Middleman::Migrator do
       migrator.migrate
     end
  
-    it "ensures that the post it's passed contains valid data" do
-      migrator.posts.first.should_receive(:valid?)
-      migrator.migrate
-    end
-
     it "writes the proper markdown file" do
       post = migrator.posts.first
       migrator.stub(:valid_posts).and_return([post])

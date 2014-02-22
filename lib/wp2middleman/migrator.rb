@@ -8,19 +8,15 @@ module WP2Middleman
     def initialize(wp_xml_export_file, body_to_markdown: false, include_fields: [])
       @body_to_markdown = body_to_markdown
       @include_fields = include_fields
-      @posts = WP2Middleman::PostCollection.new(wp_xml_export_file).posts
+      @posts = WP2Middleman::PostCollection.from_file(wp_xml_export_file).without_attachments.only_valid
     end
 
     def migrate
       ensure_export_directory
 
-      valid_posts.each do |post|
+      posts.each do |post|
         File.write(full_filename(post), file_content(post))
       end
-    end
-
-    def valid_posts
-      posts.select &:valid?
     end
 
     def file_content(post, include_fields: @include_fields)

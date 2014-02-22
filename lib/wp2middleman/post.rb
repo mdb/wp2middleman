@@ -22,6 +22,10 @@ module WP2Middleman
       !(post_date.nil? || title.nil? || date_published.nil? || content.nil?)
     end
 
+    def attachment?
+      type == 'attachment'
+    end
+
     def filename
       "#{date_published}-#{title_for_filename}"
     end
