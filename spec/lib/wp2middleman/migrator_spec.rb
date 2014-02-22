@@ -27,62 +27,11 @@ describe WP2Middleman::Migrator do
  
     it "writes the proper markdown file" do
       post = migrator.posts.first
+      post.stub(:file_content).and_return("content")
       migrator.stub(:valid_posts).and_return([post])
-      File.should_receive(:write).with("#{Dir.pwd}/export/2012-06-08-A-Title.html.markdown", migrator.file_content(post))
+
+      File.should_receive(:write).with("#{Dir.pwd}/export/2012-06-08-A-Title.html.markdown", "content")
       migrator.migrate
-    end
-  end
-
-  describe "#file_content" do
-    it "properly formats a post as a Middleman-style post" do
-      expect(migrator.file_content(migrator.posts[1])).to eq("---\ntitle: A second title\ndate: '2011-07-25'\ntags:\n- some_tag\n- another tag\n- tag\n---\n\n <strong>Foo</strong>\n")
-    end
-
-    context "its behavior if @body_to_markdown is true" do
-      let(:migrator) { WP2Middleman::Migrator.new(file, body_to_markdown: true) }
-
-      it "formats the post body as markdown" do
-        expect(migrator.file_content(migrator.posts[1])).to eq("---\ntitle: A second title\ndate: '2011-07-25'\ntags:\n- some_tag\n- another tag\n- tag\n---\n\n**Foo**\n")
-      end
-
-      it "includes iframe and comment" do
-        expect(migrator.file_content(migrator.posts[3])).to eq("---\ntitle: A fourth item with iframe and comment\ndate: '2011-07-26'\ntags:\n- some_tag\n- another tag\n- tag\npublished: false\n---\n\nHere's a post with an iframe and a comment.\n\n\n<!--more-->\n\n\n<iframe width=\"400\" height=\"100\" style=\"position: relative; display: block; width: 400px; height: 100px;\" src=\"http://bandcamp.com/EmbeddedPlayer/v=2/track=833121761/size=venti/bgcol=FFFFFF/linkcol=4285BB/\" allowtransparency=\"true\" frameborder=\"0\"><a href=\"http://dihannmoore.bandcamp.com/track/you-do-it-for-me\">\"YOU DO IT FOR ME\" by DIHANN MOORE</a></iframe>\n")
-      end
-    end
-
-    context "has been passed include_fields" do
-      let(:migrator) { WP2Middleman::Migrator.new(file, include_fields: ['wp:post_id']) }
-
-      it "includes the property and value from the item's xml in the frontmatter" do
-        expect(migrator.file_content(migrator.posts[1])).to eq("---\ntitle: A second title\ndate: '2011-07-25'\ntags:\n- some_tag\n- another tag\n- tag\nwp:post_id: '209'\n---\n\n <strong>Foo</strong>\n")
-      end
-
-    end
-
-    context "the post is not published" do
-      it "reports 'published: false' in the post's frontmatter" do
-        expect(migrator.file_content(migrator.posts[2])).to eq("---\ntitle: 'A third title: With colon'\ndate: '2011-07-26'\ntags:\n- some_tag\n- another tag\n- tag\npublished: false\n---\n\nFoo\n")
-      end
-    end
-  end
-
-  describe "#formatted_post_content" do
-    it "returns the content of the post it's passed" do
-      expect(migrator.formatted_post_content(migrator.posts[1])).to eq(" <strong>Foo</strong>")
-    end
-
-    context "its behavior if @body_to_markdown is true" do
-      let(:migrator) { WP2Middleman::Migrator.new(file, body_to_markdown: true) }
-
-      it "returns the content of the post it's passed as markdown" do
-        expect(migrator.formatted_post_content(migrator.posts[1])).to eq("**Foo**")
-      end
-    end
-  end
-
-  describe "#full_filename" do
-    it "returns the full filename for a Middleman-style markdown post" do
-      expect(migrator.full_filename(migrator.posts[0])).to eq("#{Dir.pwd}/export/2012-06-08-A-Title.html.markdown")
     end
   end
 

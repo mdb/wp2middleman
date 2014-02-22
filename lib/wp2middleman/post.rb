@@ -30,8 +30,31 @@ module WP2Middleman
       "#{date_published}-#{title_for_filename}"
     end
 
+    def full_filename output_path
+      "#{output_path}#{filename}.html.markdown"
+    end
+
     def field(field)
       post.xpath(field).first.inner_text
+    end
+
+    def file_content(include_fields: [], body_to_markdown: false)
+      frontmatter = Frontmatter.new(self, include_fields: include_fields)
+
+      <<-EOS.gsub(/^ {8}/, '')
+        #{frontmatter.to_yaml}
+        ---
+
+        #{formatted_post_content(body_to_markdown: body_to_markdown)}
+      EOS
+    end
+
+    def formatted_post_content body_to_markdown: false
+      if body_to_markdown
+        markdown_content
+      else
+        content
+      end
     end
 
     def post_date
