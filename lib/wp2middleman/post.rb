@@ -4,8 +4,10 @@ module WP2Middleman
   class Post
     attr_accessor :post
 
-    def initialize(nokogiri_post_doc)
+    def initialize(nokogiri_post_doc, body_to_markdown: false, include_fields: [])
       @post = nokogiri_post_doc
+      @body_to_markdown = body_to_markdown
+      @include_fields = include_fields
     end
 
     def title
@@ -38,18 +40,16 @@ module WP2Middleman
       post.xpath(field).first.inner_text
     end
 
-    def file_content(include_fields: [], body_to_markdown: false)
-      frontmatter = Frontmatter.new(self, include_fields: include_fields)
-
+    def file_content
       <<-EOS.gsub(/^ {8}/, '')
         #{frontmatter.to_yaml}
         ---
 
-        #{formatted_post_content(body_to_markdown: body_to_markdown)}
+        #{formatted_post_content}
       EOS
     end
 
-    def formatted_post_content body_to_markdown: false
+    def formatted_post_content
       if body_to_markdown
         markdown_content
       else
@@ -103,6 +103,14 @@ module WP2Middleman
       end
 
       tags
+    end
+
+    private 
+
+    attr_reader :body_to_markdown, :include_fields
+
+    def frontmatter 
+      @frontmatter ||= Frontmatter.new(self, include_fields: include_fields)
     end
   end
 end

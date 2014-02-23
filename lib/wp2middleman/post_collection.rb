@@ -4,9 +4,9 @@ module WP2Middleman
   class PostCollection
     include Enumerable
 
-    def self.from_file(wp_xml_export_file) 
+    def self.from_file(wp_xml_export_file, body_to_markdown: false, include_fields: []) 
       xml = Nokogiri::XML(File.open("#{Dir.pwd}/#{wp_xml_export_file}"))
-      new xml.css('item').collect { |wp_post| WP2Middleman::Post.new(wp_post) }
+      new xml.css('item').collect { |wp_post| WP2Middleman::Post.new(wp_post, body_to_markdown: body_to_markdown, include_fields: include_fields) }
     end
 
     def initialize(posts=[])
