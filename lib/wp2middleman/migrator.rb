@@ -5,11 +5,10 @@ module WP2Middleman
     attr_reader :posts
 
     def initialize(wp_xml_export_file, body_to_markdown: false, include_fields: [])
-      @posts = WP2Middleman::PostCollection.from_file(
-        wp_xml_export_file, 
-        body_to_markdown: body_to_markdown, 
-        include_fields: include_fields
-      ).without_attachments.only_valid
+      @posts = WP2Middleman::PostCollection.from_file(wp_xml_export_file)
+        .without_attachments
+        .only_valid
+        .to_middleman(body_to_markdown: body_to_markdown, include_fields: include_fields)
     end
 
     def migrate

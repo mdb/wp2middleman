@@ -16,30 +16,6 @@ describe WP2Middleman::Post do
     it { should eq "A Title" }
   end
 
-  describe "#title_for_filename" do
-    subject { post_one.title_for_filename }
-
-    it { should eq "A-Title" }
-  end
-
-  describe "#filename" do
-    subject { post_one.filename }
-
-    it { should eq "2012-06-08-A-Title" }
-
-    context "post titles with odd characters such as colons" do
-      subject { post_three.filename }
-
-      it { should eq "2011-07-26-A-third-title-With-colon" }
-    end
-  end
-
-  describe "#full_filename" do
-    it "returns the full filename for a Middleman-style markdown post" do
-      expect(post_one.full_filename('/some/path/')).to eq("/some/path/2012-06-08-A-Title.html.markdown")
-    end
-  end
-
   describe "#post_date" do
     subject { post_one.post_date }
 
@@ -83,12 +59,6 @@ describe WP2Middleman::Post do
     it { should eq "Paragraph one.\n\n      Paragraph two.\n    " }
   end
 
-  describe "#markdown_content" do
-    subject { post_two.markdown_content }
-
-    it { should eq "**Foo**" }
-  end
-
   describe "#tags" do
     subject { post_two.tags }
 
@@ -98,57 +68,6 @@ describe WP2Middleman::Post do
       subject { post_one.tags }
 
       it { should eq [] }
-    end
-  end
-
-  describe "#file_content" do
-    it "properly formats a post as a Middleman-style post" do
-      expected_content = "---\ntitle: A Title\ndate: '2012-06-08'\ntags: []\n---\n\nParagraph one.\n\n      Paragraph two.\n    \n"
-      expect(post_one.file_content).to eq(expected_content)
-    end
-
-    context "its behavior if @body_to_markdown is true" do
-      it "formats the post body as markdown" do
-        post = WP2Middleman::Post.new(file.css('item')[1], body_to_markdown: true)
-
-        expect(post.file_content).to eq("---\ntitle: A second title\ndate: '2011-07-25'\ntags:\n- some_tag\n- another tag\n- tag\n---\n\n**Foo**\n")
-      end
-
-      it "includes iframe and comment" do
-        post = WP2Middleman::Post.new(file.css('item')[3], body_to_markdown: true)
-
-        expect(post.file_content).to eq("---\ntitle: A fourth item with iframe and comment\ndate: '2011-07-26'\ntags:\n- some_tag\n- another tag\n- tag\npublished: false\n---\n\nHere's a post with an iframe and a comment.\n\n\n<!--more-->\n\n\n<iframe width=\"400\" height=\"100\" style=\"position: relative; display: block; width: 400px; height: 100px;\" src=\"http://bandcamp.com/EmbeddedPlayer/v=2/track=833121761/size=venti/bgcol=FFFFFF/linkcol=4285BB/\" allowtransparency=\"true\" frameborder=\"0\"><a href=\"http://dihannmoore.bandcamp.com/track/you-do-it-for-me\">\"YOU DO IT FOR ME\" by DIHANN MOORE</a></iframe>\n")
-      end
-    end
-
-    context "has been passed include_fields" do
-      it "includes the property and value from the item's xml in the frontmatter" do
-        post = WP2Middleman::Post.new(file.css('item')[1], include_fields: ['wp:post_id'])
-
-        expect(post.file_content).to eq("---\ntitle: A second title\ndate: '2011-07-25'\ntags:\n- some_tag\n- another tag\n- tag\nwp:post_id: '209'\n---\n\n <strong>Foo</strong>\n")
-      end
-    end
-
-    context "the post is not published" do
-      it "reports 'published: false' in the post's frontmatter" do
-        expect(
-          post_three.file_content
-        ).to eq(
-          "---\ntitle: 'A third title: With colon'\ndate: '2011-07-26'\ntags:\n- some_tag\n- another tag\n- tag\npublished: false\n---\n\nFoo\n"
-        )
-      end
-    end
-  end
-
-  describe "#formatted_post_content" do
-    it "returns the content of the post it's passed" do
-      expect(post_two.formatted_post_content).to eq(" <strong>Foo</strong>")
-    end
-
-    it "returns the content as markdown" do
-      post = WP2Middleman::Post.new(file.css('item')[1], body_to_markdown: true)
-        
-      expect(post.formatted_post_content).to eq("**Foo**")
     end
   end
 
