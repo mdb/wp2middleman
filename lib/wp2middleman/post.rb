@@ -12,14 +12,12 @@ module WP2Middleman
       post.css('title').text
     end
 
-    def title_for_filename
-      title.gsub(/[^\w\s_-]+/, '')
-      .gsub(/(^|\b\s)\s+($|\s?\b)/, '\\1\\2')
-      .gsub(/\s+/, '-')
+    def valid?
+      !(post_date.nil? || title.nil? || date_published.nil? || content.nil?)
     end
 
-    def filename
-      "#{date_published}-#{title_for_filename}"
+    def attachment?
+      type == 'attachment'
     end
 
     def field(field)
@@ -48,17 +46,6 @@ module WP2Middleman
 
     def content
       post.at_xpath(".//content:encoded").inner_text
-    end
-
-    def markdown_content
-      html = HTMLPage.new :contents => content
-      html.comment do |node,_|
-        "#{node}"
-      end
-      html.iframe do |node,_|
-        "#{node}"
-      end
-      html.markdown
     end
 
     def tags

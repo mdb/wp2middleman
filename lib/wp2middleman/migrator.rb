@@ -2,54 +2,21 @@ require 'yaml'
 
 module WP2Middleman
   class Migrator
-
     attr_reader :posts
 
     def initialize(wp_xml_export_file, body_to_markdown: false, include_fields: [])
-      @body_to_markdown = body_to_markdown
-      @include_fields = include_fields
-      @posts = WP2Middleman::PostCollection.new(wp_xml_export_file).posts
+      @posts = WP2Middleman::PostCollection.from_file(wp_xml_export_file)
+        .without_attachments
+        .only_valid
+        .to_middleman(body_to_markdown: body_to_markdown, include_fields: include_fields)
     end
 
     def migrate
       ensure_export_directory
 
-      @posts.each do |post|
-        write_file(post)
+      posts.each do |post|
+        File.write(post.full_filename(output_path), post.file_content)
       end
-    end
-
-    def write_file(post)
-      if valid_post_data(post)
-        File.write(full_filename(post), file_content(post))
-      end
-    end
-
-    def file_content(post)
-      frontmatter = Frontmatter.new(post, include_fields: @include_fields)
-
-      <<-EOS.gsub(/^ {8}/, '')
-        #{frontmatter.to_yaml}
-        ---
-
-        #{formatted_post_content(post)}
-      EOS
-    end
-
-    def formatted_post_content(post)
-      if @body_to_markdown
-        post.markdown_content
-      else
-        post.content
-      end
-    end
-
-    def full_filename(post)
-      "#{output_path}#{post.filename}.html.markdown"
-    end
-
-    def valid_post_data(post)
-      !(post.post_date.nil? || post.title.nil? || post.date_published.nil? || post.content.nil?)
     end
 
     def output_path

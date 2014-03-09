@@ -16,24 +16,6 @@ describe WP2Middleman::Post do
     it { should eq "A Title" }
   end
 
-  describe "#title_for_filename" do
-    subject { post_one.title_for_filename }
-
-    it { should eq "A-Title" }
-  end
-
-  describe "#filename" do
-    subject { post_one.filename }
-
-    it { should eq "2012-06-08-A-Title" }
-
-    context "post titles with odd characters such as colons" do
-      subject { post_three.filename }
-
-      it { should eq "2011-07-26-A-third-title-With-colon" }
-    end
-  end
-
   describe "#post_date" do
     subject { post_one.post_date }
 
@@ -77,12 +59,6 @@ describe WP2Middleman::Post do
     it { should eq "Paragraph one.\n\n      Paragraph two.\n    " }
   end
 
-  describe "#markdown_content" do
-    subject { post_two.markdown_content }
-
-    it { should eq "**Foo**" }
-  end
-
   describe "#tags" do
     subject { post_two.tags }
 
@@ -92,6 +68,39 @@ describe WP2Middleman::Post do
       subject { post_one.tags }
 
       it { should eq [] }
+    end
+  end
+
+  describe "#valid?" do
+    def post(post_date: Date.new(2014,2,19), title: "Title", date_published: Date.new(2014,2,19), content: "content")
+      post = WP2Middleman::Post.new(double)
+
+      post.stub(:post_date).and_return(post_date)
+      post.stub(:title).and_return(title)
+      post.stub(:date_published).and_return(date_published)
+      post.stub(:content).and_return(content)
+
+      post
+    end
+
+    it "is valid with post_date, title, date_published, and content" do
+      expect(post).to be_valid
+    end
+
+    it "is not valid without post_date" do
+      expect(post(post_date: nil)).to_not be_valid
+    end
+
+    it "is not valid without a title" do
+      expect(post(title: nil)).to_not be_valid
+    end
+
+    it "is not valid without a date_published" do
+      expect(post(date_published: nil)).to_not be_valid
+    end
+
+    it "is not valid without content" do
+      expect(post(content: nil)).to_not be_valid
     end
   end
 end
