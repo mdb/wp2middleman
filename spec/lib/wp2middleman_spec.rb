@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe WP2Middleman do
   it "exists as a module" do
-    WP2Middleman.class.should eq Module
+    expect(WP2Middleman.class).to eq Module
   end
 
   describe ".migrate" do
@@ -11,8 +11,8 @@ describe WP2Middleman do
     end
 
     it "migrates the posts in the wordpress XML export file it's passed" do
-      WP2Middleman::Migrator.should_receive(:new).with('foo', body_to_markdown: false, include_fields: []).and_return(@migrator_double)
-      @migrator_double.should_receive(:migrate)
+      expect(WP2Middleman::Migrator).to receive(:new).with('foo', body_to_markdown: false, include_fields: []).and_return(@migrator_double)
+      expect(@migrator_double).to receive(:migrate)
 
       WP2Middleman.migrate 'foo'
     end
