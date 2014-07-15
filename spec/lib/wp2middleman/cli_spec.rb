@@ -7,7 +7,7 @@ describe WP2Middleman::CLI do
 
   describe "#wp2mm" do
     before do
-      cli.stub :say
+      allow(cli).to receive(:say)
     end
 
     context "it's not passed any arguments" do
@@ -19,8 +19,8 @@ describe WP2Middleman::CLI do
 
     context "it's passed a Wordpress XML export file that does not exist" do
       it "reports that it was passed an invalid directory and exits with an exit code of 1" do
-        Kernel.stub(:exit).and_return true
-        File.stub(:file?).and_return false
+        allow(Kernel).to receive(:exit) { true }
+        allow(File).to receive(:file?) { false }
         expect(cli).to receive(:error).with("foo is not a valid file")
 
         begin
@@ -33,8 +33,8 @@ describe WP2Middleman::CLI do
 
     context "it's passed a valid Wordpress XML export file" do
       before :each do
-        WP2Middleman.stub(:migrate).and_return false
-        File.stub(:file?).and_return true
+        allow(WP2Middleman).to receive(:migrate) { false }
+        allow(File).to receive(:file?) { true }
       end
 
       it "migrates the posts listed in the XML file" do
@@ -50,8 +50,8 @@ describe WP2Middleman::CLI do
 
     context "sets include_fields" do
       before :each do
-        WP2Middleman.stub(:migrate).and_return false
-        File.stub(:file?).and_return true
+        allow(WP2Middleman).to receive(:migrate) { false }
+        allow(File).to receive(:file?) { true }
       end
 
       it "deserializes the values into an array" do
