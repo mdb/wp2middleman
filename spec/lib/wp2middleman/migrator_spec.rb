@@ -10,12 +10,12 @@ describe WP2Middleman::Migrator do
 
   describe "#migrate" do
     before :each do
-      FileUtils.stub :mkdir_p
-      File.stub :write
+      allow(FileUtils).to receive(:mkdir_p)
+      allow(File).to receive(:write)
     end
 
     it "ensures there is an export directory" do
-      File.stub :open
+      allow(File).to receive(:open)
       expect(migrator).to receive :ensure_export_directory
       migrator.migrate
     end
@@ -27,8 +27,8 @@ describe WP2Middleman::Migrator do
  
     it "writes the proper markdown file" do
       post = migrator.posts.first
-      post.stub(:file_content).and_return("content")
-      migrator.stub(:valid_posts).and_return([post])
+      allow(post).to receive(:file_content) { "content" }
+      allow(migrator).to receive(:valid_posts) { [post] }
 
       expect(File).to receive(:write).with("#{Dir.pwd}/export/2012-06-08-A-Title.html.markdown", "content")
       migrator.migrate
@@ -46,7 +46,7 @@ describe WP2Middleman::Migrator do
 
   describe "#ensure_export_directory" do
     it "makes the export directory if it's not already there" do
-      File.stub(:directory?).and_return false
+      allow(File).to receive(:directory?) { false }
 
       expect(FileUtils).to receive(:mkdir_p).with("#{Dir.pwd}/export/")
 
@@ -55,7 +55,7 @@ describe WP2Middleman::Migrator do
 
     context "the export directory is already there" do
       it "does not create it" do
-        File.stub(:directory?).and_return true
+        allow(File).to receive(:directory?) { true }
 
         migrator.ensure_export_directory
 
