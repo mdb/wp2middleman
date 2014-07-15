@@ -5,7 +5,7 @@ describe WP2Middleman::Migrator do
   let(:migrator) { WP2Middleman::Migrator.new(file) }
 
   it "exists as a class within the WP2Middleman module" do
-    WP2Middleman::Migrator.class.should eq Class
+    expect(WP2Middleman::Migrator.class).to eq Class
   end
 
   describe "#migrate" do
@@ -16,12 +16,12 @@ describe WP2Middleman::Migrator do
 
     it "ensures there is an export directory" do
       File.stub :open
-      migrator.should_receive :ensure_export_directory
+      expect(migrator).to receive :ensure_export_directory
       migrator.migrate
     end
 
     it "writes a middleman markdown file for each post" do
-      File.should_receive(:write).exactly(4).times
+      expect(File).to receive(:write).exactly(4).times
       migrator.migrate
     end
  
@@ -30,22 +30,25 @@ describe WP2Middleman::Migrator do
       post.stub(:file_content).and_return("content")
       migrator.stub(:valid_posts).and_return([post])
 
-      File.should_receive(:write).with("#{Dir.pwd}/export/2012-06-08-A-Title.html.markdown", "content")
+      expect(File).to receive(:write).with("#{Dir.pwd}/export/2012-06-08-A-Title.html.markdown", "content")
       migrator.migrate
     end
   end
 
   describe "#output_path" do
     subject { migrator.output_path }
+    let(:export_path) { migrator.output_path }
 
-    it { should eq("#{Dir.pwd}/export/") }
+    it "reports the proper path to the export directory" do
+      expect(export_path).to eq "#{Dir.pwd}/export/"
+    end
   end
 
   describe "#ensure_export_directory" do
     it "makes the export directory if it's not already there" do
       File.stub(:directory?).and_return false
 
-      FileUtils.should receive(:mkdir_p).with("#{Dir.pwd}/export/")
+      expect(FileUtils).to receive(:mkdir_p).with("#{Dir.pwd}/export/")
 
       migrator.ensure_export_directory
     end
@@ -56,7 +59,7 @@ describe WP2Middleman::Migrator do
 
         migrator.ensure_export_directory
 
-        FileUtils.should_not receive(:mkdir_p).with("#{Dir.pwd}/export/")
+        expect(FileUtils).not_to receive(:mkdir_p).with("#{Dir.pwd}/export/")
       end
     end
   end
