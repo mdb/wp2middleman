@@ -17,7 +17,7 @@ describe WP2Middleman::Migrator do
   it "sets published to false for unpublished posts" do
     frontmatter = WP2Middleman::Frontmatter.new(post).post_data
 
-    expect(frontmatter["published"]).to be_false
+    expect(frontmatter["published"]).to be_falsey
   end
 
   it "sets published to nil for published posts" do

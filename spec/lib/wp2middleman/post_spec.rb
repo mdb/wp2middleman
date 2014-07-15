@@ -7,7 +7,7 @@ describe WP2Middleman::Post do
   let(:post_three) { WP2Middleman::Post.new(file.css('item')[2]) }
 
   it "exists as a class within the WP2Middleman module" do
-    WP2Middleman::Post.class.should eq Class
+    expect(WP2Middleman::Post.class).to eq Class
   end
 
   describe "#title" do
@@ -75,10 +75,10 @@ describe WP2Middleman::Post do
     def post(post_date: Date.new(2014,2,19), title: "Title", date_published: Date.new(2014,2,19), content: "content")
       post = WP2Middleman::Post.new(double)
 
-      post.stub(:post_date).and_return(post_date)
-      post.stub(:title).and_return(title)
-      post.stub(:date_published).and_return(date_published)
-      post.stub(:content).and_return(content)
+      allow(post).to receive(:post_date) { post_date }
+      allow(post).to receive(:title) { title }
+      allow(post).to receive(:date_published) { date_published }
+      allow(post).to receive(:content) { content }
 
       post
     end
