@@ -22,7 +22,12 @@ describe WP2Middleman::CLI do
         Kernel.stub(:exit).and_return true
         File.stub(:file?).and_return false
         expect(cli).to receive(:error).with("foo is not a valid file")
-        lambda { cli.wp2mm 'foo' }.should exit_with_code(1)
+
+        begin
+          cli.wp2mm('foo')
+        rescue SystemExit => e
+          expect(e.status).to eq(1)
+        end
       end
     end
 
