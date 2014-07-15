@@ -24,7 +24,7 @@ describe WP2Middleman::Migrator do
       expect(File).to receive(:write).exactly(4).times
       migrator.migrate
     end
- 
+
     it "writes the proper markdown file" do
       post = migrator.posts.first
       allow(post).to receive(:file_content) { "content" }
