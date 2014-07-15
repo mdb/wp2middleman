@@ -36,30 +36,35 @@ describe WP2Middleman::MiddlemanPost do
   it "has a title formatted for a filename" do
     wp_post = double :post, title: "A Title"
     post = WP2Middleman::MiddlemanPost.new(wp_post)
+
     expect(post.title_for_filename).to eq "A-Title"
   end
 
   it "removes odd characters (like colons) from title for filename" do
     wp_post = double :post, title: "A third title: With colon"
     post = WP2Middleman::MiddlemanPost.new(wp_post)
+
     expect(post.title_for_filename).to eq "A-third-title-With-colon"
   end
 
   it "prepends the date published onto the title for the filename" do
     wp_post = double :post, title: "A Title", date_published: Date.new(2012,6,8)
     post = WP2Middleman::MiddlemanPost.new(wp_post)
+
     expect(post.filename).to eq "2012-06-08-A-Title"
   end
 
   it "returns the full filename for a Middleman-style markdown post" do
     wp_post = double :post, title: "A Title", date_published: Date.new(2012,6,8)
     post = WP2Middleman::MiddlemanPost.new(wp_post)
+
     expect(post.full_filename('/some/path/')).to eq("/some/path/2012-06-08-A-Title.html.markdown")
   end
 
   it "converts the content to markdown" do
     wp_post = double :post, content: "<strong>Foo</strong>"
     post = WP2Middleman::MiddlemanPost.new(wp_post)
+
     expect(post.markdown_content).to eq "**Foo**"
   end
 
