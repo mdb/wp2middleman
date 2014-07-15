@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = WP2Middleman::VERSION
   spec.authors       = ["Mike Ball"]
   spec.email         = ["mikedball@gmail.com"]
-  spec.description   = %q{Migrate a Wordpress export XML file to middleman}
-  spec.summary       = %q{Migrate your Wordpress blog posts to middleman}
+  spec.description   = %q{Migrate a Wordpress export XML file to Middleman-style markdown files}
+  spec.summary       = %q{Migrate Wordpress blog posts to Middleman-style markdown files}
   spec.homepage      = "http://github.com/mdb/wp2middleman"
   spec.license       = "MIT"
 
