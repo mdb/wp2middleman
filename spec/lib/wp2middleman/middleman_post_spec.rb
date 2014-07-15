@@ -86,7 +86,7 @@ describe WP2Middleman::MiddlemanPost do
   end
 
   it "appends included fields in with frontmatter" do
-    post_two.should_receive(:field).with('wp:post_id').and_return('209')
+    expect(post_two).to receive(:field).with('wp:post_id').and_return('209')
     post = WP2Middleman::MiddlemanPost.new post_two, include_fields: ['wp:post_id']
 
     expect( post.file_content ).to eq(
