@@ -7,7 +7,7 @@ describe WP2Middleman::Post do
   let(:post_three) { WP2Middleman::Post.new(file.css('item')[2]) }
 
   it "exists as a class within the WP2Middleman module" do
-    WP2Middleman::Post.class.should eq Class
+    expect(WP2Middleman::Post.class).to eq Class
   end
 
   describe "#title" do
