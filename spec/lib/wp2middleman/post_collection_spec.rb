@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe WP2Middleman::PostCollection do
   let(:file) { 'spec/fixtures/fixture.xml' }
-  
+
   it "exists as a class within the WP2Middleman module" do
     expect(WP2Middleman::PostCollection.class).to eq Class
   end

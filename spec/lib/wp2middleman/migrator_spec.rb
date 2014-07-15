@@ -16,27 +16,33 @@ describe WP2Middleman::Migrator do
 
     it "ensures there is an export directory" do
       allow(File).to receive(:open)
+
       expect(migrator).to receive :ensure_export_directory
+
       migrator.migrate
     end
 
     it "writes a middleman markdown file for each post" do
       expect(File).to receive(:write).exactly(4).times
+
       migrator.migrate
     end
- 
+
     it "writes the proper markdown file" do
       post = migrator.posts.first
+
       allow(post).to receive(:file_content) { "content" }
       allow(migrator).to receive(:valid_posts) { [post] }
 
       expect(File).to receive(:write).with("#{Dir.pwd}/export/2012-06-08-A-Title.html.markdown", "content")
+
       migrator.migrate
     end
   end
 
   describe "#output_path" do
     subject { migrator.output_path }
+
     let(:export_path) { migrator.output_path }
 
     it "reports the proper path to the export directory" do

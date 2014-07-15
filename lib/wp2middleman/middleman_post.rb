@@ -60,11 +60,11 @@ module WP2Middleman
       html.markdown
     end
 
-    private 
+    private
 
     attr_reader :wp_post, :body_to_markdown, :include_fields
 
-    def frontmatter 
+    def frontmatter
       @frontmatter ||= Frontmatter.new(wp_post, include_fields: include_fields)
     end
   end

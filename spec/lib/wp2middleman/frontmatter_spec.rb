@@ -31,7 +31,7 @@ describe WP2Middleman::Migrator do
     allow(post).to receive(:field).with("field2") { "value2" }
 
     frontmatter = WP2Middleman::Frontmatter.new(post, include_fields: ["field1", "field2"]).post_data
-    
+
     expect(frontmatter["field1"]).to eq("value1")
     expect(frontmatter["field2"]).to eq("value2")
   end
