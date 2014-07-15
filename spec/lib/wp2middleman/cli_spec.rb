@@ -12,7 +12,7 @@ describe WP2Middleman::CLI do
 
     context "it's not passed any arguments" do
       it "returns usage details" do
-        cli.should_receive(:usage).exactly(1).times
+        expect(cli).to receive(:usage).exactly(1).times
         cli.wp2mm
       end
     end
@@ -21,7 +21,7 @@ describe WP2Middleman::CLI do
       it "reports that it was passed an invalid directory and exits with an exit code of 1" do
         Kernel.stub(:exit).and_return true
         File.stub(:file?).and_return false
-        cli.should_receive(:error).with("foo is not a valid file")
+        expect(cli).to receive(:error).with("foo is not a valid file")
         lambda { cli.wp2mm 'foo' }.should exit_with_code(1)
       end
     end
@@ -33,12 +33,12 @@ describe WP2Middleman::CLI do
       end
 
       it "migrates the posts listed in the XML file" do
-        WP2Middleman.should_receive(:migrate).with "foo", nil, []
+        expect(WP2Middleman).to receive(:migrate).with "foo", nil, []
         cli.wp2mm "foo"
       end
 
       it "reports that the directory has been successfully uploaded" do
-        cli.should_receive(:say).with("Successfully migrated foo", "\e[32m")
+        expect(cli).to receive(:say).with("Successfully migrated foo", "\e[32m")
         cli.wp2mm "foo"
       end
     end
@@ -50,7 +50,7 @@ describe WP2Middleman::CLI do
       end
 
       it "deserializes the values into an array" do
-        WP2Middleman.should_receive(:migrate).with "foo", nil, ['wp:post_id', 'guid']
+        expect(WP2Middleman).to receive(:migrate).with "foo", nil, ['wp:post_id', 'guid']
 
         capture :stdout do
           WP2Middleman::CLI.start %w[wp2mm foo --include_fields=wp:post_id guid]
@@ -63,10 +63,10 @@ describe WP2Middleman::CLI do
     subject(:usage) { cli.usage }
 
     it "displays version info, GitHub info, and help" do
-      cli.should_receive(:say).with('wp2middleman 0.0.1')
-      cli.should_receive(:say).with('https://github.com/mdb/wp2middleman')
-      cli.should_receive(:say).with("\n")
-      cli.should_receive(:help)
+      expect(cli).to receive(:say).with('wp2middleman 0.0.1')
+      expect(cli).to receive(:say).with('https://github.com/mdb/wp2middleman')
+      expect(cli).to receive(:say).with("\n")
+      expect(cli).to receive(:help)
 
       usage
     end
