@@ -13,42 +13,42 @@ describe WP2Middleman::Post do
   describe "#title" do
     subject { post_one.title }
 
-    it { should eq "A Title" }
+    it { is_expected.to eq "A Title" }
   end
 
   describe "#post_date" do
     subject { post_one.post_date }
 
-    it { should eq "2012-06-08 03:21:41" }
+    it { is_expected.to eq "2012-06-08 03:21:41" }
   end
 
   describe "#date_published" do
     subject { post_one.date_published }
 
-    it { should eq "2012-06-08" }
+    it { is_expected.to eq "2012-06-08" }
   end
 
   describe "#status" do
     subject { post_three.status }
 
-    it { should eq "private" }
+    it { is_expected.to eq "private" }
   end
 
   describe "#field" do
     subject { post_one.field('wp:post_id') }
 
-    it { should eq "84" }
+    it { is_expected.to eq "84" }
   end
 
   describe "#published?" do
     subject { post_one.published? }
 
-    it { should eq true }
+    it { is_expected.to eq true }
 
     context "#status is not 'publish'" do
       subject { post_three.published? }
 
-      it { should eq false }
+      it { is_expected.to eq false }
 
     end
   end
@@ -56,18 +56,18 @@ describe WP2Middleman::Post do
   describe "#content" do
     subject { post_one.content }
 
-    it { should eq "Paragraph one.\n\n      Paragraph two.\n    " }
+    it { is_expected.to eq "Paragraph one.\n\n      Paragraph two.\n    " }
   end
 
   describe "#tags" do
     subject { post_two.tags }
 
-    it { should eq ["some_tag", "another tag", "tag"] }
+    it { is_expected.to eq ["some_tag", "another tag", "tag"] }
 
     context "the post only has an 'Uncategorized' tag" do
       subject { post_one.tags }
 
-      it { should eq [] }
+      it { is_expected.to eq [] }
     end
   end
 
