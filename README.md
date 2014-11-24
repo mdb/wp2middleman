@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/mdb/wp2middleman.png?branch=master)](https://travis-ci.org/mdb/wp2middleman)
+[![Code Climate](https://codeclimate.com/github/mdb/wp2middleman/badges/gpa.svg)](https://codeclimate.com/github/mdb/wp2middleman)
 
 # wp2middleman
 
