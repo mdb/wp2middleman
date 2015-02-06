@@ -3,7 +3,9 @@
 
 # wp2middleman
 
-Migrate the posts contained in a Wordpress XML export file to Middleman-style markdown files.
+A command line tool to help move a Wordpress blog to [Middleman](http://middlemanapp.com).
+
+wp2middleman migrates the posts contained in a Wordpress XML export file to Middleman-style markdown files.
 
 ## Installation
 
