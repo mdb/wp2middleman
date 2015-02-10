@@ -10,10 +10,7 @@ wp2middleman migrates the posts contained in a Wordpress XML export file to Midd
 ## Installation
 
 ```
-git clone http://github.com/mdb/wp2middleman
-cd wp2middleman
-bundle install
-rake install
+gem install wp2middleman
 ```
 
 ## Commandline Usage
