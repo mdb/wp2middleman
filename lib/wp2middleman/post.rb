@@ -32,6 +32,10 @@ module WP2Middleman
       Date.parse(post_date).to_s
     end
 
+    def date_time_published
+      Time.parse(post_date).strftime("%F %T")
+    end
+
     def status
       post.xpath("wp:status").first.inner_text
     end

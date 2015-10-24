@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe WP2Middleman::Migrator do
   def post(attributes = {})
-    defaults = {title: "mytitle", date_published: "mydate", tags: "mytags", published?: false}
+    defaults = {title: "mytitle", date_time_published: "mydate", tags: "mytags", published?: false}
     @post ||= double(defaults.merge attributes)
   end
 
