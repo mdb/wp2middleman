@@ -13,7 +13,7 @@ module WP2Middleman
     end
 
     def valid?
-      !(post_date.nil? || title.nil? || date_published.nil? || content.nil?)
+      !(post_date.nil? || title.nil? || date_time_published.nil? || content.nil?)
     end
 
     def attachment?
@@ -30,6 +30,10 @@ module WP2Middleman
 
     def date_published
       Date.parse(post_date).to_s
+    end
+
+    def date_time_published
+      Time.parse(post_date).strftime("%F %T")
     end
 
     def status

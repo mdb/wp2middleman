@@ -10,7 +10,7 @@ module WP2Middleman
     def post_data
       data = {
         'title' => post.title,
-        'date' => post.date_published,
+        'date' => post.date_time_published,
         'tags' => post.tags
       }
 
