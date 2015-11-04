@@ -28,6 +28,12 @@ describe WP2Middleman::Post do
     it { is_expected.to eq "2012-06-08" }
   end
 
+  describe "#date_time_published" do
+    subject { post_one.date_time_published }
+
+    it { is_expected.to eq "2012-06-08 03:21:41" }
+  end
+
   describe "#status" do
     subject { post_three.status }
 
@@ -72,12 +78,12 @@ describe WP2Middleman::Post do
   end
 
   describe "#valid?" do
-    def post(post_date: Date.new(2014,2,19), title: "Title", date_published: Date.new(2014,2,19), content: "content")
+    def post(post_date: Date.new(2014,2,19), title: "Title", date_time_published: Time.new(2014,2,19,1,2,3), content: "content")
       post = WP2Middleman::Post.new(double)
 
       allow(post).to receive(:post_date) { post_date }
       allow(post).to receive(:title) { title }
-      allow(post).to receive(:date_published) { date_published }
+      allow(post).to receive(:date_time_published) { date_time_published }
       allow(post).to receive(:content) { content }
 
       post
@@ -96,7 +102,7 @@ describe WP2Middleman::Post do
     end
 
     it "is not valid without a date_published" do
-      expect(post(date_published: nil)).to_not be_valid
+      expect(post(date_time_published: nil)).to_not be_valid
     end
 
     it "is not valid without content" do
